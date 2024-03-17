@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Monster))]
 public class MonsterDragging : MonoBehaviour
 {
     private bool _isLifted;
