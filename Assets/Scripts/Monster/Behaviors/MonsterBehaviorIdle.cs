@@ -1,33 +1,31 @@
 ﻿using UnityEngine;
 
-public class MonsterBehaviorIdle : IMonsterBehavior
+public class MonsterBehaviorIdle : MonsterBehavior
 {
-    private readonly Monster _monster;
-
-    // Время простоя.
-    private readonly float _time;
+    private readonly float _time; // Время простоя.
+    private readonly float _timeOffset;
     private float _timer;
 
-    public MonsterBehaviorIdle(Monster monster, float time)
+    public MonsterBehaviorIdle(Monster monster, float time, float timeOffset) : base(monster)
     {
-        _monster = monster;
         _time = time;
+        _timeOffset = timeOffset;
     }
 
-    public void Enter()
+    public override void Enter()
     {
-        _timer = Random.Range(_time - _time / 2f, _time + _time / 2f);
+        IsFinished = false;
+
+        _timer = Random.Range(_time - _timeOffset, _time + _timeOffset);
     }
 
-    public void Exit()
-    {
-    }
-
-    public void Update()
+    public override void Update()
     {
         if (_timer <= 0)
         {
-            _monster.Behavior.SetBehaviorWalking();
+            _monster.BehaviorHandler.SetBehaviorWalking();
+
+            IsFinished = true;
         }
 
         _timer -= Time.deltaTime;

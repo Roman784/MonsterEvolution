@@ -1,17 +1,10 @@
-public class MonsterBehaviorLifting : IMonsterBehavior
+public class MonsterBehaviorLifting : MonsterBehavior
 {
-    public void Enter()
+    public MonsterBehaviorLifting(Monster monster) : base(monster)
     {
-        throw new System.NotImplementedException();
     }
 
-    public void Exit()
+    public override void Update()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void Update()
-    {
-        throw new System.NotImplementedException();
     }
 }

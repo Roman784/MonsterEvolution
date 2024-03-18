@@ -1,33 +1,28 @@
 using UnityEngine;
 
-public class MonsterBehaviorWalking : IMonsterBehavior
+public class MonsterBehaviorWalking : MonsterBehavior
 {
-    private readonly Monster _monster;
-
     private Vector2 _position;
 
-    public MonsterBehaviorWalking(Monster monster)
+    public MonsterBehaviorWalking(Monster monster) : base(monster)
     {
-        _monster = monster;
     }
 
-    public void Enter()
+    public override void Enter()
     {
+        IsFinished = false;
+
         _monster.Movement.SetSpeed(SpeedTypes.Walk);
         _position = CorralArea.Instance.GetRandomPosition();
     }
 
-    public void Exit()
+    public override void Update()
     {
-    }
-
-    public void Update()
-    {
-        _monster.Movement.Move(_position);
+        _monster.Movement.MoveTo(_position);
 
         if ((Vector2)_monster.transform.position == _position)
         {
-            _monster.Behavior.SetBehaviorIdle();
+            IsFinished = true;
         }
     }
 }

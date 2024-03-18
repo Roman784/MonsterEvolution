@@ -1,91 +1,15 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-[RequireComponent(typeof(Monster))]
-public class MonsterBehavior : MonoBehaviour
+public abstract class MonsterBehavior
 {
-    private Dictionary<Type, IMonsterBehavior> _behaviorsMap;
-    private IMonsterBehavior _currentBehavior;
+    public bool IsFinished { get; protected set; }
 
-    private Monster _monster;
+    protected readonly Monster _monster;
 
-    [SerializeField] private float _idleTime;
-
-    private void Awake()
+    public MonsterBehavior(Monster monster)
     {
-        _monster = GetComponent<Monster>();
+        _monster = monster;
     }
 
-    private void Start()
-    {
-        InitBehaviors();
-        DefaultBehavior();
-    }
-
-    private void Update()
-    {
-        if (_currentBehavior != null)
-        {
-            _currentBehavior.Update();
-        }
-
-        if (!CorralArea.Instance.IsWithin(transform.position) && _currentBehavior != GetBehavior<MonsterBehaviorReentry>())
-        {
-            SetBehaviorReentry();
-        }
-    }
-
-    private void InitBehaviors()
-    {
-        _behaviorsMap = new Dictionary<Type, IMonsterBehavior>();
-
-        _behaviorsMap[typeof(MonsterBehaviorIdle)] = new MonsterBehaviorIdle(_monster, _idleTime);
-        _behaviorsMap[typeof(MonsterBehaviorWalking)] = new MonsterBehaviorWalking(_monster);
-        _behaviorsMap[typeof(MonsterBehaviorLifting)] = new MonsterBehaviorLifting();
-        _behaviorsMap[typeof(MonsterBehaviorReentry)] = new MonsterBehaviorReentry(_monster);
-    }
-
-    private void SetBehavior(IMonsterBehavior newBehavior)
-    {
-        if (_currentBehavior != null)
-            _currentBehavior.Exit();
-
-        _currentBehavior = newBehavior;
-        _currentBehavior.Enter();
-    }
-
-    private IMonsterBehavior GetBehavior<T>() where T : IMonsterBehavior
-    {
-        return _behaviorsMap[typeof(T)];
-    }
-
-    private void DefaultBehavior()
-    {
-        SetBehaviorIdle();
-    }
-
-    public void SetBehaviorIdle()
-    {
-        var behavior = GetBehavior<MonsterBehaviorIdle>();
-        SetBehavior(behavior);
-    }
-
-    public void SetBehaviorWalking()
-    {
-        var behavior = GetBehavior<MonsterBehaviorWalking>();
-        SetBehavior(behavior);
-    }
-
-    public void SetBehaviorLifting()
-    {
-        var behavior = GetBehavior<MonsterBehaviorLifting>();
-        SetBehavior(behavior);
-    }
-
-    public void SetBehaviorReentry()
-    {
-        var behavior = GetBehavior<MonsterBehaviorReentry>();
-        SetBehavior(behavior);
-    }
+    public virtual void Enter() { }
+    public virtual void Exit() { }
+    public abstract void Update();
 }

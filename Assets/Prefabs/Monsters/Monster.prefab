@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idleTime: 2
+  _idleTimeOffset: 1.5
 --- !u!114 &7713557180309255930
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,38 +1,31 @@
 using UnityEngine;
 
-public class MonsterBehaviorReentry : IMonsterBehavior
+public class MonsterBehaviorReentry : MonsterBehavior
 {
-    private readonly Monster _monster;
-
     private Vector2 _position;
 
-    public MonsterBehaviorReentry(Monster monster)
+    public MonsterBehaviorReentry(Monster monster) : base(monster)
     {
-        _monster = monster;
     }
 
-    public void Enter()
+    public override void Enter()
     {
         _monster.Movement.SetSpeed(SpeedTypes.Run);
         _position = CorralArea.Instance.GetRandomPosition();
     }
 
-    public void Exit()
+    public override void Update()
     {
-    }
+        _monster.Movement.MoveTo(_position);
 
-    public void Update()
-    {
-        _monster.Movement.Move(_position);
+        if (!CorralArea.Instance.IsWithin(_position))
+        {
+            _position = CorralArea.Instance.GetRandomPosition();
+        }
 
         if ((Vector2)_monster.transform.position == _position)
         {
-            _monster.Behavior.SetBehaviorIdle();
-        }
-
-        if (!CorralArea.Instance.IsWithin(_position)) 
-        {
-            _position = CorralArea.Instance.GetRandomPosition();
+            IsFinished = true;
         }
     }
 }

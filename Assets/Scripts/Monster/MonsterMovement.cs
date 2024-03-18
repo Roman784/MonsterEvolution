@@ -7,7 +7,7 @@ public class MonsterMovement : MonoBehaviour
 
     private float _speed;
 
-    public void Move(Vector2 position)
+    public void MoveTo(Vector2 position)
     {
         transform.position = Vector2.MoveTowards(transform.position, position, _speed * Time.deltaTime);
     }
