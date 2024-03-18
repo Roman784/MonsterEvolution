@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkSpeed: 0.5
-  _runSpeed: 2
+  _runSpeed: 4
 --- !u!1 &7048873856039633274
 GameObject:
   m_ObjectHideFlags: 0

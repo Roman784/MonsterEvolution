@@ -26,7 +26,14 @@ public class MonsterBehavior : MonoBehaviour
     private void Update()
     {
         if (_currentBehavior != null)
+        {
             _currentBehavior.Update();
+        }
+
+        if (!CorralArea.Instance.IsWithin(transform.position) && _currentBehavior != GetBehavior<MonsterBehaviorReentry>())
+        {
+            SetBehaviorReentry();
+        }
     }
 
     private void InitBehaviors()
@@ -36,7 +43,7 @@ public class MonsterBehavior : MonoBehaviour
         _behaviorsMap[typeof(MonsterBehaviorIdle)] = new MonsterBehaviorIdle(_monster, _idleTime);
         _behaviorsMap[typeof(MonsterBehaviorWalking)] = new MonsterBehaviorWalking(_monster);
         _behaviorsMap[typeof(MonsterBehaviorLifting)] = new MonsterBehaviorLifting();
-        _behaviorsMap[typeof(MonsterBehaviorReentry)] = new MonsterBehaviorReentry();
+        _behaviorsMap[typeof(MonsterBehaviorReentry)] = new MonsterBehaviorReentry(_monster);
     }
 
     private void SetBehavior(IMonsterBehavior newBehavior)

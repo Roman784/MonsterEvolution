@@ -6,6 +6,9 @@ public class CorralArea : MonoBehaviour
 
     [SerializeField] private Vector2 _borderIndent;
 
+    Vector2 _lowerLeftCorner;
+    Vector2 _upperRightCorner;
+
     private Camera _camera;
 
     private void Awake()
@@ -18,15 +21,26 @@ public class CorralArea : MonoBehaviour
         _camera = Camera.main;
     }
 
+    private void Update()
+    {
+        _lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
+        _upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
+    }
+
     public Vector2 GetRandomPosition()
     {
-        Vector2 lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
-        Vector2 upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
-
-        float x = Random.Range(lowerLeftCorner.x, upperRightCorner.x);
-        float y = Random.Range(lowerLeftCorner.y, upperRightCorner.y);
+        float x = Random.Range(_lowerLeftCorner.x, _upperRightCorner.x);
+        float y = Random.Range(_lowerLeftCorner.y, _upperRightCorner.y);
 
         return new Vector2(x, y);
+    }
+
+    public bool IsWithin(Vector2 position)
+    {
+        return position.x > _lowerLeftCorner.x && 
+               position.x < _upperRightCorner.x &&
+               position.y > _lowerLeftCorner.y && 
+               position.y < _upperRightCorner.y;
     }
 
     private void OnDrawGizmosSelected()
@@ -35,11 +49,11 @@ public class CorralArea : MonoBehaviour
 
         Camera camera = Camera.main;
 
-        Vector2 lowerLeftCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
-        Vector2 upperRightCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
+        Vector2 _lowerLeftCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
+        Vector2 _upperRightCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
 
-        Vector2 center = (lowerLeftCorner + upperRightCorner) / 2f;
-        Vector2 size = upperRightCorner - lowerLeftCorner;
+        Vector2 center = (_lowerLeftCorner + _upperRightCorner) / 2f;
+        Vector2 size = _upperRightCorner - _lowerLeftCorner;
 
         Gizmos.DrawWireCube(center, size);
     }
