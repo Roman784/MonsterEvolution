@@ -23,6 +23,8 @@ public class MonsterBehaviorHandler : MonoBehaviour
     {
         InitBehaviors();
         DefaultBehavior();
+
+        _monster.Dragging.Lifted.AddListener(SetBehaviorLifting);
     }
 
     private void InitBehaviors()

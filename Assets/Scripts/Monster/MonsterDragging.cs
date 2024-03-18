@@ -7,6 +7,7 @@ public class MonsterDragging : MonoBehaviour
     private bool _isLifted;
     private Vector2 _offsetLiftPosition; // Смещение относительно точки подъёма.
 
+    public UnityEvent Lifted { get; private set; } = new UnityEvent();
     public UnityEvent Lowered { get; private set; } = new UnityEvent();
 
     private Camera _camera;
@@ -37,6 +38,8 @@ public class MonsterDragging : MonoBehaviour
         _isLifted = true;
 
         _offsetLiftPosition = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        Lifted.Invoke();
     }
 
     // Опускает монстра.
