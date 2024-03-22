@@ -42,6 +42,8 @@ public class MonsterMerging : MonoBehaviour
 
         monster.Destroy();
         _monster.Destroy();
+
+        DataContext.Instance.Remove—oupleMonster(monster.TypeNumber);
     }
 
     private bool CanMerge(Monster monster)

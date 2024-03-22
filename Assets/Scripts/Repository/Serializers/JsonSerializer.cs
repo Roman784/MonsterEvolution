@@ -13,7 +13,7 @@ public class JsonSerializer : IDataSerializer
         _savePath = savePath;
         _saveFileName = saveFileName;
 
-        _fullPath = Path.Combine (_savePath, _saveFileName, ".json");
+        _fullPath = Path.Combine(_savePath, _saveFileName + ".json");
     }
 
     public GameData Load()
@@ -44,7 +44,7 @@ public class JsonSerializer : IDataSerializer
         try
         {
             string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(_savePath, json);
+            File.WriteAllText(_fullPath, json);
 
             Debug.Log("Save data complete");
         }
