@@ -22,16 +22,14 @@ public class DataContext
     private DataContext()
     {
         _serializer = new JsonSerializer(Application.dataPath, "gameData");
+    }
 
-        Load();
+    public void Load()
+    {
+        GameData = _serializer.Load();
 
         if (GameData == null)
             DefaultData();
-    }
-
-    private void Load()
-    {
-        GameData = _serializer.Load();
     }
 
     private void Save()

@@ -19,16 +19,9 @@ public class CorralArea : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-
-        UpdateCornerPositions();
-    }
-
-    private void Update()
-    {
-        UpdateCornerPositions();
     }
     
-    private void UpdateCornerPositions()
+    private void LocateCornerPositions()
     {
         _lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
         _upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
@@ -36,6 +29,8 @@ public class CorralArea : MonoBehaviour
 
     public Vector2 GetRandomPosition()
     {
+        LocateCornerPositions();
+
         float x = Random.Range(_lowerLeftCorner.x, _upperRightCorner.x);
         float y = Random.Range(_lowerLeftCorner.y, _upperRightCorner.y);
 
@@ -44,6 +39,8 @@ public class CorralArea : MonoBehaviour
 
     public bool IsWithin(Vector2 position)
     {
+        LocateCornerPositions();
+
         return position.x > _lowerLeftCorner.x && 
                position.x < _upperRightCorner.x &&
                position.y > _lowerLeftCorner.y && 

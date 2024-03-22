@@ -13,11 +13,6 @@ public class MonsterSpawner : MonoBehaviour
         Instance = Singleton.Get<MonsterSpawner>();
     }
 
-    private void Start()
-    {
-        SpawnSavedMonsters();
-    }
-
     public void Spawn(int typeNumber, Vector2 position, bool needSave=true)
     {
         Monster prefab = GetMonsterPrefab(typeNumber);
@@ -38,7 +33,7 @@ public class MonsterSpawner : MonoBehaviour
         return _monsterPrefabs.FirstOrDefault(p => p.TypeNumber == typeNumber);
     }
 
-    private void SpawnSavedMonsters()
+    public void SpawnSavedMonsters()
     {
         List<MonsterData> monstersData = DataContext.Instance.GameData.Monsters;
 
@@ -50,7 +45,7 @@ public class MonsterSpawner : MonoBehaviour
     }
 
     [ContextMenu("Spawn")]
-    private void Spawn()
+    private void SpawnTestMonster()
     {
         Vector2 position = CorralArea.Instance.GetRandomPosition();
         Spawn(1, position);
