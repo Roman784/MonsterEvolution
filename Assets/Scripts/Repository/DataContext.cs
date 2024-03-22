@@ -16,6 +16,11 @@ public class DataContext
     }
 
     public GameData GameData { get; private set; }
+    private GameData _defaultGameData = new GameData()
+    {
+        CoinCount = 0,
+        Monsters = new List<MonsterData>()
+    };
 
     private IDataSerializer _serializer;
 
@@ -39,8 +44,11 @@ public class DataContext
 
     private void DefaultData()
     {
-        GameData = new GameData();
-        GameData.Monsters = new List<MonsterData>();
+        GameData = new GameData()
+        {
+            CoinCount = _defaultGameData.CoinCount,
+            Monsters = new List<MonsterData>(_defaultGameData.Monsters)
+        };
     }
 
     public void AddMonster(int typeNumber)
@@ -66,6 +74,13 @@ public class DataContext
         GameData.Monsters.Remove(monster1);
         GameData.Monsters.Remove(monster2);
 
+        Save();
+    }
+
+    public void SetCoinCount(int value)
+    {
+        GameData.CoinCount = value;
+        
         Save();
     }
 }

@@ -15,5 +15,6 @@ public class LevelBootstrap : MonoBehaviour
         while (DataContext.Instance.GameData == null) { yield return null; }
 
         MonsterSpawner.Instance.SpawnSavedMonsters();
+        Wallet.Instance.Init(DataContext.Instance.GameData.CoinCount);
     }
 }

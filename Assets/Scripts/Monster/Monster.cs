@@ -9,6 +9,9 @@ public class Monster : MonoBehaviour
     [SerializeField] private int _typeNumber;
     public int TypeNumber { get { return _typeNumber; } }
 
+    [SerializeField] private int _revenue;
+    public int Revenue {  get { return _revenue; } }
+
     public MonsterBehaviorHandler BehaviorHandler { get; private set; }
     public MonsterDragging Dragging { get; private set; }
     public MonsterMerging Merging { get; private set; }
@@ -29,6 +32,8 @@ public class Monster : MonoBehaviour
 
     public void Destroy()
     {
+        MonsterRegistry.Instance.Remove(this);
+
         Destroy(gameObject);
     }
 }

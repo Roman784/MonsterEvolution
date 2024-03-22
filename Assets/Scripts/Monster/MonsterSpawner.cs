@@ -22,6 +22,8 @@ public class MonsterSpawner : MonoBehaviour
         Monster spawnedMonster = Instantiate(prefab);
         spawnedMonster.Init(position);
 
+        MonsterRegistry.Instance.Add(spawnedMonster);
+
         if (needSave)
         {
             DataContext.Instance.AddMonster(typeNumber);

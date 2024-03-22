@@ -1,7 +1,8 @@
 {
+    "CoinCount": 111,
     "Monsters": [
         {
-            "TypeNumber": 1
+            "TypeNumber": 2
         },
         {
             "TypeNumber": 2

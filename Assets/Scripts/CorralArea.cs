@@ -14,10 +14,7 @@ public class CorralArea : MonoBehaviour
     private void Awake()
     {
         Instance = Singleton.Get<CorralArea>();
-    }
 
-    private void Start()
-    {
         _camera = Camera.main;
     }
     
