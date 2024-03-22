@@ -19,9 +19,16 @@ public class CorralArea : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+
+        UpdateCornerPositions();
     }
 
     private void Update()
+    {
+        UpdateCornerPositions();
+    }
+    
+    private void UpdateCornerPositions()
     {
         _lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
         _upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;

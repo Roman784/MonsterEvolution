@@ -10,6 +10,8 @@ public class MonsterBehaviorReentry : MonsterBehavior
 
     public override void Enter()
     {
+        IsFinished = false;
+
         _monster.Movement.SetSpeed(SpeedTypes.Run);
         _position = CorralArea.Instance.GetRandomPosition();
     }
