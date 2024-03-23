@@ -20,8 +20,8 @@ public class CorralArea : MonoBehaviour
     
     private void LocateCornerPositions()
     {
-        _lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
-        _upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
+        _lowerLeftCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent + (Vector2)transform.position;
+        _upperRightCorner = (Vector2)_camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent + (Vector2)transform.position;
     }
 
     public Vector2 GetRandomPosition()
@@ -50,8 +50,8 @@ public class CorralArea : MonoBehaviour
 
         Camera camera = Camera.main;
 
-        Vector2 _lowerLeftCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent;
-        Vector2 _upperRightCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent;
+        Vector2 _lowerLeftCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(0, 0)) + _borderIndent + (Vector2)transform.position;
+        Vector2 _upperRightCorner = (Vector2)camera.ViewportToWorldPoint(new Vector2(1, 1)) - _borderIndent + (Vector2)transform.position;
 
         Vector2 center = (_lowerLeftCorner + _upperRightCorner) / 2f;
         Vector2 size = _upperRightCorner - _lowerLeftCorner;
