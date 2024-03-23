@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,14 +6,14 @@ public class Wallet : MonoBehaviour
 {
     public static Wallet Instance { get; private set; }
 
-    private int _coinCount;
-    public int CoinCount { get { return _coinCount; } }
+    private BigInteger _coins;
+    public BigInteger Coins { get { return _coins; } }
 
     private int _CPS; // Coins per secon.
     public int CPS { get { return _CPS; } }
     private CooldownTimer _revenueTimer;
 
-    public UnityEvent CoinCountChanged = new UnityEvent();
+    public UnityEvent CoinsChanged = new UnityEvent();
     public UnityEvent CPSChanged = new UnityEvent();
 
     private void Awake()
@@ -24,11 +25,12 @@ public class Wallet : MonoBehaviour
         _revenueTimer = new CooldownTimer(1, CollectRevenue);
     }
 
-    public void Init(int coinCount)
+    public void Init(BigInteger coins)
     {
-        _coinCount = coinCount;
+        _coins = coins;
 
         CalculateCPS();
+        UpdateRenderers();
     }
 
     private void Update()
@@ -57,22 +59,32 @@ public class Wallet : MonoBehaviour
 
     public void IncreaseCoinCount(int value)
     {
-        _coinCount += value;
+        _coins += value;
 
-        CoinCountChanged.Invoke();
+        CoinsChanged.Invoke();
 
-        DataContext.Instance.SetCoinCount(CoinCount);
+        DataContext.Instance.SetCoinCount(Coins);
     }
 
     public void ReduceCoinCount(int value)
     {
-        _coinCount -= value;
+        _coins -= value;
 
-        if (_coinCount < 0)
-            _coinCount = 0;
+        if (_coins < 0)
+            _coins = 0;
 
-        CoinCountChanged.Invoke();
+        CoinsChanged.Invoke();
 
-        DataContext.Instance.SetCoinCount(CoinCount);
+        DataContext.Instance.SetCoinCount(Coins);
+    }
+
+    private void UpdateRenderers()
+    {
+        CoinsRenderer[] renderers = GameObject.FindObjectsOfType<CoinsRenderer>();
+
+        foreach (CoinsRenderer renderer in renderers)
+        {
+            renderer.UpdateAll();
+        }
     }
 }

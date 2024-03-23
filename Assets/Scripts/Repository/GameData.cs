@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Numerics;
 
 [System.Serializable]
 public class GameData
 {
-    public int CoinCount;
+    public string CoinCount;
     public List<MonsterData> Monsters = new List<MonsterData>();
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using UnityEngine;
 
 public class DataContext
@@ -18,7 +19,7 @@ public class DataContext
     public GameData GameData { get; private set; }
     private GameData _defaultGameData = new GameData()
     {
-        CoinCount = 0,
+        CoinCount = "0",
         Monsters = new List<MonsterData>()
     };
 
@@ -77,9 +78,9 @@ public class DataContext
         Save();
     }
 
-    public void SetCoinCount(int value)
+    public void SetCoinCount(BigInteger value)
     {
-        GameData.CoinCount = value;
+        GameData.CoinCount = value.ToString();
         
         Save();
     }
