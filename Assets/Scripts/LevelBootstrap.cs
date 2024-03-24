@@ -15,7 +15,11 @@ public class LevelBootstrap : MonoBehaviour
 
         while (DataContext.Instance.GameData == null) { yield return null; }
 
+        GameData gameData = DataContext.Instance.GameData;
+        MonsterSpawnerData monsterSpawnerData = gameData.MonsterSpawner;
+
         MonsterSpawner.Instance.SpawnSavedMonsters();
-        Wallet.Instance.Init(BigInteger.Parse(DataContext.Instance.GameData.CoinCount));
+        MonsterBoxSpawner.Instance.Init(monsterSpawnerData.TypeNumber, monsterSpawnerData.Cooldown, monsterSpawnerData.TimeReductionStep);
+        Wallet.Instance.Init(BigInteger.Parse(gameData.CoinCount));
     }
 }

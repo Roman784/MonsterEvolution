@@ -20,7 +20,13 @@ public class DataContext
     private GameData _defaultGameData = new GameData()
     {
         CoinCount = "0",
-        Monsters = new List<MonsterData>()
+        Monsters = new List<MonsterData>(),
+        MonsterSpawner = new MonsterSpawnerData()
+        {
+            TypeNumber = 1,
+            Cooldown = 15,
+            TimeReductionStep = 0.1f
+        }
     };
 
     private IDataSerializer _serializer;
@@ -82,6 +88,13 @@ public class DataContext
     {
         GameData.CoinCount = value.ToString();
         
+        Save();
+    }
+
+    public void SetMonsterSpawnerData(MonsterSpawnerData newData)
+    {
+        GameData.MonsterSpawner = newData;
+
         Save();
     }
 }

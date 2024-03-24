@@ -7,7 +7,6 @@ public class MonsterSpawner : MonoBehaviour
     public static MonsterSpawner Instance {  get; private set; }
 
     [SerializeField] private List<Monster> _monsterPrefabs = new List<Monster>();
-    [SerializeField] private MonsterBox _monsterBoxPrefab;
 
     private void Awake()
     {
@@ -31,12 +30,6 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBox(int typeNumber, Vector2 position)
-    {
-        MonsterBox spawnedBox = Instantiate(_monsterBoxPrefab);
-        spawnedBox.Init(typeNumber, position);
-    }
-
     private Monster GetMonsterPrefab(int typeNumber)
     {
         return _monsterPrefabs.FirstOrDefault(p => p.TypeNumber == typeNumber);
@@ -58,12 +51,5 @@ public class MonsterSpawner : MonoBehaviour
     {
         Vector2 position = CorralArea.Instance.GetRandomPosition();
         Spawn(1, position);
-    }
-
-    [ContextMenu("Spawn test box")]
-    private void SpawnTestBox()
-    {
-        Vector2 position = CorralArea.Instance.GetRandomPosition();
-        SpawnBox(1, position);
     }
 }
