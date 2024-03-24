@@ -36,7 +36,7 @@ public class MonsterMerging : MonoBehaviour
         }
     }
 
-    private void Merge(Monster monster)
+    public void Merge(Monster monster)
     {
         MonsterSpawner.Instance.Spawn(_monster.TypeNumber + 1, GetMergedMonsterPosition(monster));
 

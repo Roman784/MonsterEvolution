@@ -1,12 +1,6 @@
 {
-    "CoinCount": "862",
+    "CoinCount": "1826",
     "Monsters": [
-        {
-            "TypeNumber": 2
-        },
-        {
-            "TypeNumber": 2
-        },
         {
             "TypeNumber": 2
         },
@@ -18,5 +12,9 @@
         "TypeNumber": 1,
         "Cooldown": 15.0,
         "TimeReductionStep": 0.10000000149011612
+    },
+    "MergeMagnet": {
+        "IsOpen": true,
+        "Cooldown": 5.0
     }
 }

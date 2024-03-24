@@ -24,8 +24,13 @@ public class DataContext
         MonsterSpawner = new MonsterSpawnerData()
         {
             TypeNumber = 1,
-            Cooldown = 15,
+            Cooldown = 15f,
             TimeReductionStep = 0.1f
+        },
+        MergeMagnet = new MergeMagnetData()
+        {
+            IsOpen = false,
+            Cooldown = 20f
         }
     };
 
@@ -94,6 +99,13 @@ public class DataContext
     public void SetMonsterSpawnerData(MonsterSpawnerData newData)
     {
         GameData.MonsterSpawner = newData;
+
+        Save();
+    }
+
+    public void SetMergeMagnedData(MergeMagnetData newData)
+    {
+        GameData.MergeMagnet = newData;
 
         Save();
     }

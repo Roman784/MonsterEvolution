@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class MonsterDragging : MonoBehaviour
 {
     private bool _isLifted;
+    public bool IsLifted { get { return _isLifted; } }
     private Vector2 _offsetLiftPosition; // Смещение относительно точки подъёма.
 
     public UnityEvent Lifted { get; private set; } = new UnityEvent();
