@@ -475,6 +475,7 @@ MonoBehaviour:
   _monsterPrefabs:
   - {fileID: 6032321840656960879, guid: 43d369ee86328784c9816807d4fc49c8, type: 3}
   - {fileID: 4429395586968234154, guid: 728b292b6cb5a7e4987f1ab64894bf06, type: 3}
+  _monsterBoxPrefab: {fileID: 800175317170194222, guid: df3f1d29ecfbe2448b298961723d455c, type: 3}
 --- !u!4 &459471600
 Transform:
   m_ObjectHideFlags: 0
@@ -994,8 +995,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1893411762}
   - {fileID: 459471600}
   - {fileID: 974069481}
-  - {fileID: 1893411762}
   - {fileID: 1267874754}
   - {fileID: 890157476}
