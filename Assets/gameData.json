@@ -1,9 +1,6 @@
 {
-    "CoinCount": "70040044",
+    "CoinCount": "50",
     "Monsters": [
-        {
-            "TypeNumber": 2
-        },
         {
             "TypeNumber": 2
         },

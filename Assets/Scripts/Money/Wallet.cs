@@ -2,9 +2,18 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Wallet : MonoBehaviour
+public class Wallet
 {
-    public static Wallet Instance { get; private set; }
+    private static Wallet _instance;
+    public static Wallet Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = new Wallet();
+            return _instance;
+        }
+    }
 
     private BigInteger _coins;
     public BigInteger Coins { get { return _coins; } }
@@ -16,26 +25,21 @@ public class Wallet : MonoBehaviour
     public UnityEvent CoinsChanged = new UnityEvent();
     public UnityEvent CPSChanged = new UnityEvent();
 
-    private void Awake()
+    private Wallet()
     {
-        Instance = Singleton.Get<Wallet>();
-
-        MonsterRegistry.Instance.OnChanged.AddListener(CalculateCPS);
-
-        _revenueTimer = new CooldownTimer(1, CollectRevenue);
     }
 
     public void Init(BigInteger coins)
     {
         _coins = coins;
 
+        _revenueTimer = new GameObject("RevenueTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
+        _revenueTimer.Init(1, CollectRevenue);
+
         CalculateCPS();
         UpdateRenderers();
-    }
 
-    private void Update()
-    {
-        _revenueTimer.Update();
+        MonsterRegistry.Instance.OnChanged.AddListener(CalculateCPS);
     }
 
     private void CollectRevenue()

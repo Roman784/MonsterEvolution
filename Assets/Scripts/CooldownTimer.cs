@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class CooldownTimer
+public class CooldownTimer : MonoBehaviour
 {
     private float _timer;
     private float _cooldown;
 
-    public UnityEvent OnTicked = new UnityEvent();
+    public UnityEvent OnTicked { get; private set; } = new UnityEvent();
 
-    public CooldownTimer(float cooldown, UnityAction action = null)
+    public void Init(float cooldown, UnityAction action = null)
     {
         _cooldown = cooldown;
         _timer = _cooldown;
@@ -17,7 +17,12 @@ public class CooldownTimer
             OnTicked.AddListener(action);
     }
 
-    public void Update()
+    public void SetCooldown(float value)
+    {
+        _cooldown = value;
+    }
+
+    private void Update()
     {
         if (_timer <= 0)
         {
@@ -29,10 +34,5 @@ public class CooldownTimer
         {
             _timer -= Time.deltaTime;
         }
-    }
-
-    public void SetCooldown(float value)
-    {
-        _cooldown = value;
     }
 }
