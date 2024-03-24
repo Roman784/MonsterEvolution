@@ -602,6 +602,9 @@ MonoBehaviour:
   _monsterPrefabs:
   - {fileID: 6032321840656960879, guid: 43d369ee86328784c9816807d4fc49c8, type: 3}
   - {fileID: 4429395586968234154, guid: 728b292b6cb5a7e4987f1ab64894bf06, type: 3}
+  - {fileID: 2778796174633511970, guid: 8d2748c6234af8a438736b5488e2374a, type: 3}
+  - {fileID: 4303365759227760473, guid: b603c554d079cad4db60f42cb5196e01, type: 3}
+  - {fileID: 1638426725496318771, guid: 270430316cf2f6e4792c2384d56cf5ea, type: 3}
 --- !u!4 &459471600
 Transform:
   m_ObjectHideFlags: 0

@@ -8,9 +8,13 @@ public class MonsterSpawner : MonoBehaviour
 
     [SerializeField] private List<Monster> _monsterPrefabs = new List<Monster>();
 
+    private int maxTypeNumber;
+
     private void Awake()
     {
         Instance = Singleton.Get<MonsterSpawner>();
+
+        maxTypeNumber = GetMaxTypeNumber();
     }
 
     public void Spawn(int typeNumber, Vector2 position, bool needSave=true)
@@ -20,7 +24,7 @@ public class MonsterSpawner : MonoBehaviour
         if (prefab == null) return;
 
         Monster spawnedMonster = Instantiate(prefab);
-        spawnedMonster.Init(position);
+        spawnedMonster.Init(maxTypeNumber, position);
 
         MonsterRegistry.Instance.Add(spawnedMonster);
 
@@ -28,11 +32,6 @@ public class MonsterSpawner : MonoBehaviour
         {
             DataContext.Instance.AddMonster(typeNumber);
         }
-    }
-
-    private Monster GetMonsterPrefab(int typeNumber)
-    {
-        return _monsterPrefabs.FirstOrDefault(p => p.TypeNumber == typeNumber);
     }
 
     public void SpawnSavedMonsters()
@@ -44,6 +43,16 @@ public class MonsterSpawner : MonoBehaviour
             Vector2 position = CorralArea.Instance.GetRandomPosition();
             Spawn(monsterData.TypeNumber, position, false);
         }
+    }
+
+    private Monster GetMonsterPrefab(int typeNumber)
+    {
+        return _monsterPrefabs.FirstOrDefault(m => m.TypeNumber == typeNumber);
+    }
+
+    private int GetMaxTypeNumber()
+    {
+        return _monsterPrefabs.OrderByDescending(m => m.TypeNumber).First().TypeNumber;
     }
 
     [ContextMenu("Spawn test monster")]

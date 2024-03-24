@@ -50,7 +50,7 @@ public class MonsterMerging : MonoBehaviour
     {
         return monster != _monster &&
                monster.TypeNumber == _monster.TypeNumber && 
-               monster.TypeNumber + 1 <= Monster.MaxTypeNumber;
+               monster.TypeNumber + 1 <= _monster.MaxTypeNumber;
     }
 
     private Vector2 GetMergedMonsterPosition(Monster monster)

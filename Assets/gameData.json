@@ -1,8 +1,8 @@
 {
-    "CoinCount": "1826",
+    "CoinCount": "1923",
     "Monsters": [
         {
-            "TypeNumber": 2
+            "TypeNumber": 4
         },
         {
             "TypeNumber": 1
@@ -15,6 +15,6 @@
     },
     "MergeMagnet": {
         "IsOpen": true,
-        "Cooldown": 5.0
+        "Cooldown": 20.0
     }
 }

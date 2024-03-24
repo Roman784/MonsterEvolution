@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6167798349589611765
+--- !u!1001 &9105408007950157676
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 76253448860128422, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Name
-      value: Monster2 Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085268176057200012, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
-      propertyPath: _typeNumber
-      value: 2
+      value: Monster5 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Color.b
-      value: 0.87169814
+      value: 0.2584905
       objectReference: {fileID: 0}
     - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Color.g
-      value: 0.87169814
+      value: 0.2584905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5362838909311084043, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,11 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7557097599168883807, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: _revenue
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7557097599168883807, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: _typeNumber
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

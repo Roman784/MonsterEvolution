@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(MonsterMovement))]
 public class Monster : MonoBehaviour
 {
-    public static readonly int MaxTypeNumber = 2;
+    public int MaxTypeNumber {  get; private set; }
 
     [SerializeField] private int _typeNumber;
     public int TypeNumber { get { return _typeNumber; } }
@@ -25,8 +25,9 @@ public class Monster : MonoBehaviour
         Movement = GetComponent<MonsterMovement>();
     }
 
-    public void Init(Vector2 position)
+    public void Init(int maxTypeNumber, Vector2 position)
     {
+        MaxTypeNumber = maxTypeNumber;
         transform.position = position;
     }
 
