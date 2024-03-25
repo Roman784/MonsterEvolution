@@ -7,6 +7,10 @@ public class MergeMagnet : Ability
 {
     public static MergeMagnet Instance { get; private set; }
 
+    public int _coupleNumber;
+
+    private List<Monster> _selectedMonsters = new List<Monster>();
+
     [Space]
 
     [SerializeField] private float _moveSpeed;
@@ -16,6 +20,13 @@ public class MergeMagnet : Ability
         Instance = Singleton.Get<MergeMagnet>();
     }
 
+    public void Init(float initialCooldown, int coupleNumber)
+    {
+        base.Init(initialCooldown);
+
+        _coupleNumber = coupleNumber;
+    }
+
     private new void Update()
     {
         base.Update();
@@ -23,12 +34,14 @@ public class MergeMagnet : Ability
 
     protected override void Use()
     {
-        Monster[] couple = GetCouple();
+        for (int i = 0; i < _coupleNumber; i++)
+        {
+            Monster[] couple = GetCouple();
 
-        if (couple == null) return;
+            if (couple == null) break;
 
-        StopAllCoroutines();
-        StartCoroutine(PushMonsters(couple));
+            StartCoroutine(PushMonsters(couple));
+        }
     }
 
     private Monster[] GetCouple()
@@ -40,20 +53,24 @@ public class MergeMagnet : Ability
         {
             Monster first = monsters[i];
 
-            if (first.Dragging.IsLifted || first.TypeNumber >= first.MaxTypeNumber)
+            if (first.Dragging.IsLifted || first.TypeNumber >= first.MaxTypeNumber || _selectedMonsters.Contains(first))
                 continue;
 
             for (int j = i + 1; j < monsters.Count; j++)
             {
                 Monster second = monsters[j];
 
-                if (first.TypeNumber == second.TypeNumber && !second.Dragging.IsLifted && first != second)
-                {
-                    couple[0] = first;
-                    couple[1] = second;
+                if (first.TypeNumber != second.TypeNumber || second.Dragging.IsLifted || first == second || _selectedMonsters.Contains(second))
+                    continue;
 
-                    return couple;
-                }
+                couple[0] = first;
+                couple[1] = second;
+
+                _selectedMonsters.Add(couple[0]);
+                _selectedMonsters.Add(couple[1]);
+
+                return couple;
+
             }
         }
 
@@ -72,6 +89,9 @@ public class MergeMagnet : Ability
             yield return null;
         }
 
+        _selectedMonsters.Remove(couple[0]);
+        _selectedMonsters.Remove(couple[1]);
+
         couple[0].Merging.TryMerge(couple[1]);
     }
 
@@ -81,14 +101,8 @@ public class MergeMagnet : Ability
                position1.y - spread < position2.y && position1.y + spread > position2.y;
     }
 
-    protected override void Save()
+    public void SetCoupleNumber(int value)
     {
-        MergeMagnetData data = new MergeMagnetData()
-        {
-            IsOpen = _isOpen,
-            Cooldown = _cooldown
-        };
-
-        DataContext.Instance.SetMergeMagnedData(data);
+        _coupleNumber = value;
     }
 }

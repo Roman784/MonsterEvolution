@@ -1,11 +1,11 @@
 {
-    "CoinCount": "5933",
+    "CoinCount": "7031",
     "Monsters": [
         {
-            "TypeNumber": 5
+            "TypeNumber": 2
         },
         {
-            "TypeNumber": 1
+            "TypeNumber": 3
         },
         {
             "TypeNumber": 2
@@ -17,11 +17,12 @@
         "TimeReductionStep": 0.10000000149011612
     },
     "MergeMagnet": {
-        "IsOpen": true,
-        "Cooldown": 20.0
+        "Level": 0,
+        "InitialCooldown": 20.0,
+        "InitialCoupleNumber": 1
     },
     "BoxOpener": {
-        "IsOpen": true,
-        "Cooldown": 20.0
+        "Level": 0,
+        "InitialCooldown": 20.0
     }
 }

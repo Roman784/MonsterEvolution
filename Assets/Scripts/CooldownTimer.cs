@@ -35,5 +35,6 @@ public class CooldownTimer : MonoBehaviour
     public void SetCooldown(float value)
     {
         _cooldown = value;
+        Time = _cooldown;
     }
 }

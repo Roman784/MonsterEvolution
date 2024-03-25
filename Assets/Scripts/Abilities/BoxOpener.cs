@@ -20,15 +20,4 @@ public class BoxOpener : Ability
 
         boxes[0].Open();
     }
-
-    protected override void Save()
-    {
-        BoxOpenerData data = new BoxOpenerData()
-        {
-            IsOpen = _isOpen,
-            Cooldown = _cooldown
-        };
-
-        DataContext.Instance.SetBoxOpenerData(data);
-    }
 }

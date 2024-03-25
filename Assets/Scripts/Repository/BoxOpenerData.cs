@@ -1,6 +1,6 @@
 [System.Serializable]
 public class BoxOpenerData
 {
-    public bool IsOpen;
-    public float Cooldown;
+    public int Level;
+    public float InitialCooldown;
 }

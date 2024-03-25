@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public abstract class Ability : MonoBehaviour
 {
-    protected bool _isOpen;
-
+    public float InitialCooldown { get; private set; }
     protected float _cooldown;
     protected CooldownTimer _timer;
 
@@ -13,15 +12,15 @@ public abstract class Ability : MonoBehaviour
 
     [SerializeField] private Image _indicator;
 
-    public void Init(bool isOpen, float cooldown)
+    public void Init(float initialCooldown)
     {
-        _isOpen = isOpen;
-        _cooldown = cooldown;
+        InitialCooldown = initialCooldown;
+        _cooldown = initialCooldown;
 
-        if (isOpen)
-            Enable();
-        else
-            Disable();
+        _timer = new GameObject(GetType().ToString() + "Timer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
+        _timer.Init(_cooldown, Use);
+
+        Disable();
     }
 
     protected void Update()
@@ -29,38 +28,25 @@ public abstract class Ability : MonoBehaviour
         UpdateIndicator();
     }
 
-    private void Enable()
+    public void Enable()
     {
         gameObject.SetActive(true);
-
-        _timer = new GameObject(GetType().ToString() + "Timer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
-        _timer.Init(_cooldown, Use);
+        _timer.gameObject.SetActive(true);
     }
 
     private void Disable()
     {
         gameObject.SetActive(false);
+        _timer.gameObject.SetActive(false);
     }
 
     protected abstract void Use();
-
-    public void Open()
-    {
-        _isOpen = true;
-        Enable();
-
-        Save();
-    }
 
     public void SetCooldown(float value)
     {
         _cooldown = value;
         _timer.SetCooldown(value);
-
-        Save();
     }
-
-    protected abstract void Save();
 
     private void UpdateIndicator()
     {

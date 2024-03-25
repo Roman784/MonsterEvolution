@@ -29,13 +29,14 @@ public class DataContext
         },
         MergeMagnet = new MergeMagnetData()
         {
-            IsOpen = false,
-            Cooldown = 20f
+            Level = 0,
+            InitialCooldown = 20f,
+            InitialCoupleNumber = 1
         },
         BoxOpener = new BoxOpenerData()
         {
-            IsOpen = false,
-            Cooldown = 20f
+            Level = 0,
+            InitialCooldown = 20f
         }
     };
 

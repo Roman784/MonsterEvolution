@@ -1,6 +1,7 @@
 [System.Serializable]
 public class MergeMagnetData
 {
-    public bool IsOpen;
-    public float Cooldown;
+    public int Level;
+    public float InitialCooldown;
+    public int InitialCoupleNumber;
 }
