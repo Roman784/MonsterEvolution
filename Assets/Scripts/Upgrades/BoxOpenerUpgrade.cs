@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class MergeMagnetUpgrade
+public class BoxOpenerUpgrade
 {
-    private static MergeMagnetUpgrade _instance;
-    public static MergeMagnetUpgrade Instance
+    private static BoxOpenerUpgrade _instance;
+    public static BoxOpenerUpgrade Instance
     {
         get
         {
             if (_instance == null)
-                _instance = new MergeMagnetUpgrade();
+                _instance = new BoxOpenerUpgrade();
             return _instance;
         }
     }
@@ -17,7 +18,7 @@ public class MergeMagnetUpgrade
     public int CurrentLevel { get; private set; }
     private Dictionary<int, Action> _levels;
 
-    private MergeMagnetUpgrade()
+    private BoxOpenerUpgrade()
     {
         CurrentLevel = 0;
         InitLevels();
@@ -47,29 +48,29 @@ public class MergeMagnetUpgrade
 
     private void Level1()
     {
-        MergeMagnet.Instance.Enable();
+        BoxOpener.Instance.Enable();
     }
 
-    private void Level2() 
+    private void Level2()
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 5f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float _cooldown = BoxOpener.Instance.InitialCooldown - 5f;
+        BoxOpener.Instance.SetCooldown(_cooldown);
     }
 
     private void Level3()
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 10f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float _cooldown = BoxOpener.Instance.InitialCooldown - 10f;
+        BoxOpener.Instance.SetCooldown(_cooldown);
     }
 
     private void Level4()
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 15f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float _cooldown = BoxOpener.Instance.InitialCooldown - 15f;
+        BoxOpener.Instance.SetCooldown(_cooldown);
     }
 
     private void Level5()
     {
-        MergeMagnet.Instance.SetCoupleCountAtTime(2);
+        BoxOpener.Instance.SetCountAtTime(2);
     }
 }

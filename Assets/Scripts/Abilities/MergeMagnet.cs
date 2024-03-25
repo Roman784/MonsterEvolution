@@ -7,7 +7,7 @@ public class MergeMagnet : Ability
 {
     public static MergeMagnet Instance { get; private set; }
 
-    public int _coupleNumber;
+    public int _coupleCountAtTime;
 
     private List<Monster> _selectedMonsters = new List<Monster>();
 
@@ -20,11 +20,11 @@ public class MergeMagnet : Ability
         Instance = Singleton.Get<MergeMagnet>();
     }
 
-    public void Init(float initialCooldown, int coupleNumber)
+    public void Init(float initialCooldown, int initialCoupleCount)
     {
         base.Init(initialCooldown);
 
-        _coupleNumber = coupleNumber;
+        _coupleCountAtTime = initialCoupleCount;
     }
 
     private new void Update()
@@ -34,7 +34,7 @@ public class MergeMagnet : Ability
 
     protected override void Use()
     {
-        for (int i = 0; i < _coupleNumber; i++)
+        for (int i = 0; i < _coupleCountAtTime; i++)
         {
             Monster[] couple = GetCouple();
 
@@ -101,8 +101,8 @@ public class MergeMagnet : Ability
                position1.y - spread < position2.y && position1.y + spread > position2.y;
     }
 
-    public void SetCoupleNumber(int value)
+    public void SetCoupleCountAtTime(int value)
     {
-        _coupleNumber = value;
+        _coupleCountAtTime = value;
     }
 }

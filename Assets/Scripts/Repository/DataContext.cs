@@ -31,12 +31,13 @@ public class DataContext
         {
             Level = 0,
             InitialCooldown = 20f,
-            InitialCoupleNumber = 1
+            InitialCoupleCountAtTime = 1
         },
         BoxOpener = new BoxOpenerData()
         {
             Level = 0,
-            InitialCooldown = 20f
+            InitialCooldown = 20f,
+            InitialCountAtTime = 1
         }
     };
 

@@ -2,9 +2,18 @@ public class BoxOpener : Ability
 {
     public static BoxOpener Instance { get; private set; }
 
+    private int _countAtTime;
+
     private void Awake()
     {
         Instance = Singleton.Get<BoxOpener>();
+    }
+
+    public void Init(float initialCooldown, int initialCountAtTime)
+    {
+        base.Init(initialCooldown);
+
+        _countAtTime = initialCountAtTime;
     }
 
     private new void Update()
@@ -16,8 +25,16 @@ public class BoxOpener : Ability
     {
         MonsterBox[] boxes = FindObjectsOfType<MonsterBox>();
 
-        if (boxes.Length == 0) return;
+        for (int i = 0; i < _countAtTime; i++)
+        {
+            if (i >= boxes.Length) return;
 
-        boxes[0].Open();
+            boxes[i].Open();
+        }
+    }
+
+    public void SetCountAtTime(int value)
+    {
+        _countAtTime = value;
     }
 }

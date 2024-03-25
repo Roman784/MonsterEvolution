@@ -23,9 +23,10 @@ public class LevelBootstrap : MonoBehaviour
         MonsterSpawner.Instance.SpawnSavedMonsters();
         MonsterBoxSpawner.Instance.Init(monsterSpawnerData.TypeNumber, monsterSpawnerData.Cooldown, monsterSpawnerData.TimeReductionStep);
         Wallet.Instance.Init(BigInteger.Parse(gameData.CoinCount));
-        MergeMagnet.Instance.Init(mergeMagnetData.InitialCooldown, mergeMagnetData.InitialCoupleNumber);
-        BoxOpener.Instance.Init(boxOpenerData.InitialCooldown);
+        MergeMagnet.Instance.Init(mergeMagnetData.InitialCooldown, mergeMagnetData.InitialCoupleCountAtTime);
+        BoxOpener.Instance.Init(boxOpenerData.InitialCooldown, boxOpenerData.InitialCountAtTime);
 
         MergeMagnetUpgrade.Instance.LevelUp(mergeMagnetData.Level);
+        BoxOpenerUpgrade.Instance.LevelUp(boxOpenerData.Level);
     }
 }
