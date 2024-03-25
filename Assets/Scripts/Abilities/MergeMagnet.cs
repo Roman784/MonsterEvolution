@@ -2,60 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MergeMagnet : MonoBehaviour
+public class MergeMagnet : Ability
 {
     public static MergeMagnet Instance { get; private set; }
-
-    private bool _isOpen;
-
-    private float _cooldown;
-    private CooldownTimer _timer;
 
     [Space]
 
     [SerializeField] private float _moveSpeed;
-
-    [Space]
-
-    [SerializeField] private Image _indicator;
 
     private void Awake()
     {
         Instance = Singleton.Get<MergeMagnet>();
     }
 
-    public void Init(bool isOpen, float cooldown)
+    private new void Update()
     {
-        _isOpen = isOpen;
-        _cooldown = cooldown;
-
-        if (isOpen)
-            Enable();
-        else
-            Disable();
+        base.Update();
     }
 
-    private void Update()
-    {
-        UpdateIndicator();
-    }
-
-    private void Enable()
-    {
-        gameObject.SetActive(true);
-
-        _timer = new GameObject("MergeMagnetTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
-        _timer.Init(_cooldown, Merge);
-    }
-
-    private void Disable()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void Merge()
+    protected override void Use()
     {
         Monster[] couple = GetCouple();
 
@@ -115,23 +81,7 @@ public class MergeMagnet : MonoBehaviour
                position1.y - spread < position2.y && position1.y + spread > position2.y;
     }
 
-    public void Open()
-    {
-        _isOpen = true;
-        Enable();
-
-        Save();
-    }
-
-    public void SetCooldown(float value)
-    {
-        _cooldown = value;
-        _timer.SetCooldown(value);
-
-        Save();
-    }
-
-    private void Save()
+    protected override void Save()
     {
         MergeMagnetData data = new MergeMagnetData()
         {
@@ -140,10 +90,5 @@ public class MergeMagnet : MonoBehaviour
         };
 
         DataContext.Instance.SetMergeMagnedData(data);
-    }
-
-    private void UpdateIndicator()
-    {
-        _indicator.fillAmount = (_cooldown - _timer.Time) / _cooldown;
     }
 }

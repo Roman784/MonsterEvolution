@@ -1,23 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxOpener : MonoBehaviour
+public abstract class Ability : MonoBehaviour
 {
-    public static BoxOpener Instance { get; private set; }
+    protected bool _isOpen;
 
-    private bool _isOpen;
-
-    private float _cooldown;
-    private CooldownTimer _timer;
+    protected float _cooldown;
+    protected CooldownTimer _timer;
 
     [Space]
 
     [SerializeField] private Image _indicator;
-
-    private void Awake()
-    {
-        Instance = Singleton.Get<BoxOpener>();
-    }
 
     public void Init(bool isOpen, float cooldown)
     {
@@ -30,7 +24,7 @@ public class BoxOpener : MonoBehaviour
             Disable();
     }
 
-    private void Update()
+    protected void Update()
     {
         UpdateIndicator();
     }
@@ -39,8 +33,8 @@ public class BoxOpener : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        _timer = new GameObject("BoxOpenerTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
-        _timer.Init(_cooldown, OpenBox);
+        _timer = new GameObject(GetType().ToString() + "Timer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
+        _timer.Init(_cooldown, Use);
     }
 
     private void Disable()
@@ -48,14 +42,7 @@ public class BoxOpener : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OpenBox()
-    {
-        MonsterBox[] boxes = FindObjectsOfType<MonsterBox>();
-
-        if (boxes.Length == 0) return;
-
-        boxes[0].Open();
-    }
+    protected abstract void Use();
 
     public void Open()
     {
@@ -73,16 +60,7 @@ public class BoxOpener : MonoBehaviour
         Save();
     }
 
-    private void Save()
-    {
-        BoxOpenerData data = new BoxOpenerData()
-        {
-            IsOpen = _isOpen,
-            Cooldown = _cooldown
-        };
-
-        DataContext.Instance.SetBoxOpenerData(data);
-    }
+    protected abstract void Save();
 
     private void UpdateIndicator()
     {

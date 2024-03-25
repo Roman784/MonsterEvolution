@@ -35,7 +35,7 @@ public class DataContext
         BoxOpener = new BoxOpenerData()
         {
             IsOpen = false,
-            Cooldown = 15f
+            Cooldown = 20f
         }
     };
 
