@@ -31,6 +31,11 @@ public class DataContext
         {
             IsOpen = false,
             Cooldown = 20f
+        },
+        BoxOpener = new BoxOpenerData()
+        {
+            IsOpen = false,
+            Cooldown = 15f
         }
     };
 
@@ -106,6 +111,13 @@ public class DataContext
     public void SetMergeMagnedData(MergeMagnetData newData)
     {
         GameData.MergeMagnet = newData;
+
+        Save();
+    }
+
+    public void SetBoxOpenerData(BoxOpenerData newData)
+    {
+        GameData.BoxOpener = newData;
 
         Save();
     }

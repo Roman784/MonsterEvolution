@@ -16,7 +16,7 @@ public class MonsterBox : MonoBehaviour
         Open();
     }
 
-    private void Open()
+    public void Open()
     {
         MonsterSpawner.Instance.Spawn(_typeNumber, transform.position);
 

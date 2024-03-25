@@ -27,23 +27,26 @@ public class MonsterMerging : MonoBehaviour
         {
             if (target.TryGetComponent<Monster>(out Monster monster))
             {
-                if (CanMerge(monster))
+                if (TryMerge(monster))
                 {
-                    Merge(monster);
                     break;
                 }
             }
         }
     }
 
-    public void Merge(Monster monster)
+    public bool TryMerge(Monster monster)
     {
+        if (!CanMerge(monster)) return false;
+
         MonsterSpawner.Instance.Spawn(_monster.TypeNumber + 1, GetMergedMonsterPosition(monster));
 
         monster.Destroy();
         _monster.Destroy();
 
         DataContext.Instance.Remove—oupleMonster(monster.TypeNumber);
+
+        return true;
     }
 
     private bool CanMerge(Monster monster)

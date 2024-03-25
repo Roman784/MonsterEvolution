@@ -74,7 +74,7 @@ public class MergeMagnet : MonoBehaviour
         {
             Monster first = monsters[i];
 
-            if (first.Dragging.IsLifted)
+            if (first.Dragging.IsLifted || first.TypeNumber >= first.MaxTypeNumber)
                 continue;
 
             for (int j = i + 1; j < monsters.Count; j++)
@@ -106,7 +106,7 @@ public class MergeMagnet : MonoBehaviour
             yield return null;
         }
 
-        couple[0].Merging.Merge(couple[1]);
+        couple[0].Merging.TryMerge(couple[1]);
     }
 
     private bool IsEqualPositions(Vector2 position1, Vector2 position2, float spread)

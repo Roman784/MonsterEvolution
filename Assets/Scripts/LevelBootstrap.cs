@@ -18,10 +18,12 @@ public class LevelBootstrap : MonoBehaviour
         GameData gameData = DataContext.Instance.GameData;
         MonsterSpawnerData monsterSpawnerData = gameData.MonsterSpawner;
         MergeMagnetData mergeMagnetData = gameData.MergeMagnet;
+        BoxOpenerData boxOpenerData = gameData.BoxOpener;
 
         MonsterSpawner.Instance.SpawnSavedMonsters();
         MonsterBoxSpawner.Instance.Init(monsterSpawnerData.TypeNumber, monsterSpawnerData.Cooldown, monsterSpawnerData.TimeReductionStep);
         Wallet.Instance.Init(BigInteger.Parse(gameData.CoinCount));
         MergeMagnet.Instance.Init(mergeMagnetData.IsOpen, mergeMagnetData.Cooldown);
+        BoxOpener.Instance.Init(boxOpenerData.IsOpen, boxOpenerData.Cooldown);
     }
 }

@@ -1,11 +1,17 @@
 {
-    "CoinCount": "1923",
+    "CoinCount": "4390",
     "Monsters": [
         {
-            "TypeNumber": 4
+            "TypeNumber": 5
         },
         {
-            "TypeNumber": 1
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 3
+        },
+        {
+            "TypeNumber": 2
         }
     ],
     "MonsterSpawner": {
@@ -16,5 +22,9 @@
     "MergeMagnet": {
         "IsOpen": true,
         "Cooldown": 20.0
+    },
+    "BoxOpener": {
+        "IsOpen": true,
+        "Cooldown": 15.0
     }
 }
