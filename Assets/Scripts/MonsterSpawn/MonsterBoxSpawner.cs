@@ -7,8 +7,7 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     [SerializeField] private MonsterBox _monsterBoxPrefab;
 
-    [Space]
-
+    public int InitialTypeNumber {  get; private set; }
     [Min(1)] private int _typeNumber;
 
     public float InitialCooldown { get; private set; }
@@ -28,6 +27,7 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     public void Init(int initialTypeNumber, float initialCooldown, float initialTimeReductionStep)
     {
+        InitialTypeNumber = initialTypeNumber;
         InitialCooldown = initialCooldown;
         InitialReductionStep = initialTimeReductionStep;
 

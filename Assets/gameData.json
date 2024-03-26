@@ -1,8 +1,14 @@
 {
-    "CoinCount": "9167",
+    "CoinCount": "9557",
     "Monsters": [
         {
             "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 1
         },
         {
             "TypeNumber": 5
@@ -10,6 +16,7 @@
     ],
     "MonsterSpawner": {
         "BoxSpawnerLevel": 0,
+        "MonsterBoxLevel": 0,
         "InitialTypeNumber": 1,
         "InitialCooldown": 15.0,
         "InitialTimeReductionStep": 0.10000000149011612

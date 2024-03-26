@@ -24,6 +24,7 @@ public class DataContext
         MonsterSpawner = new MonsterSpawnerData()
         {
             BoxSpawnerLevel = 0,
+            MonsterBoxLevel = 0,
             InitialTypeNumber = 1,
             InitialCooldown = 15f,
             InitialTimeReductionStep = 0.1f

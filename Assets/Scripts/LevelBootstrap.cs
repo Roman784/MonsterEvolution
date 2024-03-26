@@ -30,5 +30,6 @@ public class LevelBootstrap : MonoBehaviour
         MergeMagnetUpgrade.Instance.LevelUp(mergeMagnetData.Level);
         BoxOpenerUpgrade.Instance.LevelUp(boxOpenerData.Level);
         BoxSpawnerUpgrade.Instance.LevelUp(monsterSpawnerData.BoxSpawnerLevel);
+        MonsterBoxUpgrade.Instance.LevelUp(monsterSpawnerData.MonsterBoxLevel);
     }
 }
