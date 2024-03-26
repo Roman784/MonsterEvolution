@@ -11,8 +11,8 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     [Min(1)] private int _typeNumber;
 
-    [Space]
-
+    public float InitialCooldown { get; private set; }
+    public float InitialReductionStep { get; private set; }
     private float _cooldown;
     [Range(0f, 1f)] private float _timeReductionStep;
     private CooldownTimer _timer;
@@ -26,11 +26,14 @@ public class MonsterBoxSpawner : MonoBehaviour
         Instance = Singleton.Get<MonsterBoxSpawner>();
     }
 
-    public void Init(int typeNumber, float cooldown, float timeReductionStep)
+    public void Init(int initialTypeNumber, float initialCooldown, float initialTimeReductionStep)
     {
-        _typeNumber = typeNumber;
-        _cooldown = cooldown;
-        _timeReductionStep = timeReductionStep;
+        InitialCooldown = initialCooldown;
+        InitialReductionStep = initialTimeReductionStep;
+
+        _typeNumber = initialTypeNumber;
+        _cooldown = initialCooldown;
+        _timeReductionStep = initialTimeReductionStep;
 
         _timer = new GameObject("MonsterBoxSpawnTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
         _timer.Init(_cooldown, Spawn);
@@ -61,35 +64,17 @@ public class MonsterBoxSpawner : MonoBehaviour
     public void SetTypeNumber(int value)
     {
         _typeNumber = value;
-
-        Save();
     }
 
     public void SetCooldown(float value)
     {
         _cooldown = value;
         _timer.SetCooldown(_cooldown);
-
-        Save();
     }
 
     public void SetTimeReductionStep(float value)
     {
         _timeReductionStep = value;
-
-        Save();
-    }
-
-    private void Save()
-    {
-        MonsterSpawnerData data = new MonsterSpawnerData()
-        {
-            TypeNumber = _typeNumber,
-            Cooldown = _cooldown,
-            TimeReductionStep = _timeReductionStep,
-        };
-
-        DataContext.Instance.SetMonsterSpawnerData(data);
     }
 
     private void UpdateIndicator()

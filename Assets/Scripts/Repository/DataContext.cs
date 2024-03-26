@@ -23,9 +23,10 @@ public class DataContext
         Monsters = new List<MonsterData>(),
         MonsterSpawner = new MonsterSpawnerData()
         {
-            TypeNumber = 1,
-            Cooldown = 15f,
-            TimeReductionStep = 0.1f
+            BoxSpawnerLevel = 0,
+            InitialTypeNumber = 1,
+            InitialCooldown = 15f,
+            InitialTimeReductionStep = 0.1f
         },
         MergeMagnet = new MergeMagnetData()
         {

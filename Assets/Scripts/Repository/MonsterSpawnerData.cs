@@ -1,7 +1,8 @@
 [System.Serializable]
 public class MonsterSpawnerData
 {
-    public int TypeNumber;
-    public float Cooldown;
-    public float TimeReductionStep;
+    public int BoxSpawnerLevel;
+    public int InitialTypeNumber;
+    public float InitialCooldown;
+    public float InitialTimeReductionStep;
 }

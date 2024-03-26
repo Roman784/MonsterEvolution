@@ -52,20 +52,20 @@ public class MergeMagnetUpgrade
 
     private void Level2() 
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 5f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float cooldown = MergeMagnet.Instance.InitialCooldown - 5f;
+        MergeMagnet.Instance.SetCooldown(cooldown);
     }
 
     private void Level3()
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 10f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float cooldown = MergeMagnet.Instance.InitialCooldown - 10f;
+        MergeMagnet.Instance.SetCooldown(cooldown);
     }
 
     private void Level4()
     {
-        float _cooldown = MergeMagnet.Instance.InitialCooldown - 15f;
-        MergeMagnet.Instance.SetCooldown(_cooldown);
+        float cooldown = MergeMagnet.Instance.InitialCooldown - 15f;
+        MergeMagnet.Instance.SetCooldown(cooldown);
     }
 
     private void Level5()

@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxOpenerUpgrade
+public class BoxSpawnerUpgrade
 {
-    private static BoxOpenerUpgrade _instance;
-    public static BoxOpenerUpgrade Instance
+    private static BoxSpawnerUpgrade _instance;
+    public static BoxSpawnerUpgrade Instance
     {
         get
         {
             if (_instance == null)
-                _instance = new BoxOpenerUpgrade();
+                _instance = new BoxSpawnerUpgrade();
             return _instance;
         }
     }
@@ -18,7 +18,7 @@ public class BoxOpenerUpgrade
     public int CurrentLevel { get; private set; }
     private Dictionary<int, Action> _levels;
 
-    private BoxOpenerUpgrade()
+    private BoxSpawnerUpgrade()
     {
         CurrentLevel = 0;
         InitLevels();
@@ -48,29 +48,31 @@ public class BoxOpenerUpgrade
 
     private void Level1()
     {
-        BoxOpener.Instance.Enable();
+        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 5f;
+        MonsterBoxSpawner.Instance.SetCooldown(cooldown);
     }
 
     private void Level2()
     {
-        float cooldown = BoxOpener.Instance.InitialCooldown - 5f;
-        BoxOpener.Instance.SetCooldown(cooldown);
+        float step = MonsterBoxSpawner.Instance.InitialReductionStep + 0.1f;
+        MonsterBoxSpawner.Instance.SetTimeReductionStep(step);
     }
 
     private void Level3()
     {
-        float cooldown = BoxOpener.Instance.InitialCooldown - 10f;
-        BoxOpener.Instance.SetCooldown(cooldown);
+        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 10f;
+        MonsterBoxSpawner.Instance.SetCooldown(cooldown);
     }
 
     private void Level4()
     {
-        float cooldown = BoxOpener.Instance.InitialCooldown - 15f;
-        BoxOpener.Instance.SetCooldown(cooldown);
+        float step = MonsterBoxSpawner.Instance.InitialReductionStep + 0.2f;
+        MonsterBoxSpawner.Instance.SetTimeReductionStep(step);
     }
 
     private void Level5()
     {
-        BoxOpener.Instance.SetCountAtTime(2);
+        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 12.5f;
+        MonsterBoxSpawner.Instance.SetCooldown(cooldown);
     }
 }
