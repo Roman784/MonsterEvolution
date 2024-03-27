@@ -1,19 +1,40 @@
 {
-    "CoinCount": "57",
+    "CoinCount": "1604",
     "Monsters": [
-        {
-            "TypeNumber": 2
-        },
         {
             "TypeNumber": 1
         },
         {
-            "TypeNumber": 2
+            "TypeNumber": 4
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 5
         }
     ],
     "MonsterSpawner": {
         "BoxSpawnerLevel": 5,
-        "MonsterBoxLevel": 5,
+        "MonsterBoxLevel": 4,
         "InitialTypeNumber": 1,
         "InitialCooldown": 15.0,
         "InitialTimeReductionStep": 0.10000000149011612
@@ -24,7 +45,7 @@
         "InitialCoupleCountAtTime": 1
     },
     "BoxOpener": {
-        "Level": 5,
+        "Level": 2,
         "InitialCooldown": 20.0,
         "InitialCountAtTime": 1
     }

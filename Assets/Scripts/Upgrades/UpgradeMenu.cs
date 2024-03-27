@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeMenu : MonoBehaviour
+public class UpgradeMenu : PanelMenu
 {
     public static UpgradeMenu Instance { get; private set; }
 
@@ -35,15 +35,5 @@ public class UpgradeMenu : MonoBehaviour
     {
         ShopItem shopItem = Instantiate(_shopItemPrefab, _shopItemsGrid);
         shopItem.Init(upgrades, upgradeLevel, upgrade);
-    }
-
-    public void Open()
-    {
-
-    }
-
-    public void Close()
-    {
-
     }
 }
