@@ -10,7 +10,7 @@ public class CoinsRenderer : MonoBehaviour
     [SerializeField] private TMP_Text _CPSRenderer;
 
     // For values of one million and more.
-    private Dictionary<BigInteger, string> _thresholdsAndSuffixes = new Dictionary<BigInteger, string>();
+    private static Dictionary<BigInteger, string> _thresholdsAndSuffixes = new Dictionary<BigInteger, string>();
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class CoinsRenderer : MonoBehaviour
         Wallet.Instance.CPSChanged.AddListener(UpdateCPSRenderer);
     }
 
-    private void InitThreahholds()
+    private static void InitThreahholds()
     {
         _thresholdsAndSuffixes[1000000] = "Mi";
         _thresholdsAndSuffixes[1000000000] = "Bi";
@@ -56,7 +56,7 @@ public class CoinsRenderer : MonoBehaviour
         _CPSRenderer.text = GetFormattedValue(CPS) + " coin/sec";
     }
 
-    private string GetFormattedValue(BigInteger value)
+    public static string GetFormattedValue(BigInteger value)
     {
         // For values of one million and more.
         foreach (var item in _thresholdsAndSuffixes)

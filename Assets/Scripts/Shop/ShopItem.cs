@@ -72,6 +72,8 @@ public class ShopItem : MonoBehaviour
             _priceRenderer.text = "max";
             _iconRenderer.sprite = _upgrades[_upgrades.Count - 1].Icon;
 
+            _price = 0;
+
             return;
         }
 
@@ -79,12 +81,13 @@ public class ShopItem : MonoBehaviour
 
         _titleRenderer.text = _upgrades[_upgradeLevel].Title;
         _descriptionRenderer.text = _upgrades[_upgradeLevel].Description;
-        _priceRenderer.text = _upgrades[_upgradeLevel].Price.ToString();
+        _priceRenderer.text = CoinsRenderer.GetFormattedValue(_upgrades[_upgradeLevel].Price).ToString();
         _iconRenderer.sprite = _upgrades[_upgradeLevel].Icon;
     }
 
     private void UpdateCoinShortageDesignation()
     {
+        SetPrice();
         _coinShortageDesignation.SetActive(Wallet.Instance.Coins < _price);
     }
 }

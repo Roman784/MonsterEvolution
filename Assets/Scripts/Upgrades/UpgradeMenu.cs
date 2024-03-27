@@ -12,6 +12,9 @@ public class UpgradeMenu : MonoBehaviour
     [Space]
 
     [SerializeField] private List<ShopItemInfo> _mergeMagnetUpgrades = new List<ShopItemInfo>();
+    [SerializeField] private List<ShopItemInfo> _boxOpenerUpgrades = new List<ShopItemInfo>();
+    [SerializeField] private List<ShopItemInfo> _boxSpawnerUpgrades = new List<ShopItemInfo>();
+    [SerializeField] private List<ShopItemInfo> _monsterBoxUpgrades = new List<ShopItemInfo>();
 
     private void Awake()
     {
@@ -20,15 +23,18 @@ public class UpgradeMenu : MonoBehaviour
 
     public void Init()
     {
-        InitMergeMagnet();
+        GameData gameData = DataContext.Instance.GameData;
+
+        InitShopItem(gameData.MergeMagnet.Level, _mergeMagnetUpgrades, MergeMagnetUpgrade.Instance);
+        InitShopItem(gameData.BoxOpener.Level, _boxOpenerUpgrades, BoxOpenerUpgrade.Instance);
+        InitShopItem(gameData.MonsterSpawner.BoxSpawnerLevel, _boxSpawnerUpgrades, BoxSpawnerUpgrade.Instance);
+        InitShopItem(gameData.MonsterSpawner.MonsterBoxLevel, _monsterBoxUpgrades, MonsterBoxUpgrade.Instance);
     }
 
-    private void InitMergeMagnet()
+    private void InitShopItem(int upgradeLevel, List<ShopItemInfo> upgrades, Upgrade upgrade)
     {
-        int upgradeLevel = DataContext.Instance.GameData.MergeMagnet.Level;
-
         ShopItem shopItem = Instantiate(_shopItemPrefab, _shopItemsGrid);
-        shopItem.Init(_mergeMagnetUpgrades, upgradeLevel, MergeMagnetUpgrade.Instance);
+        shopItem.Init(upgrades, upgradeLevel, upgrade);
     }
 
     public void Open()

@@ -632,6 +632,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab835f465adfb914fb60261a8837863a, type: 2}
   - {fileID: 11400000, guid: 7ddebe2e9faf48d4ba016197ae9e139e, type: 2}
   - {fileID: 11400000, guid: 5d90de5ac0d5ae54dbfdf218ee0e3fb6, type: 2}
+  _boxOpenerUpgrades:
+  - {fileID: 11400000, guid: ac3b080107ec9f041bfc319d75b304d9, type: 2}
+  - {fileID: 11400000, guid: 2f5e7a50965635e4e89a756a6fb40778, type: 2}
+  - {fileID: 11400000, guid: 9a5e2a2a2d8b103459d203e2763d33fe, type: 2}
+  - {fileID: 11400000, guid: baa2c4b93091259419983c01b34d58dd, type: 2}
+  - {fileID: 11400000, guid: 6e499c4763d7b014bb189094c4012445, type: 2}
+  _boxSpawnerUpgrades:
+  - {fileID: 11400000, guid: 304632fced835274bbb173e830f656b3, type: 2}
+  - {fileID: 11400000, guid: 7f786d63179936c4383158cb61cf325c, type: 2}
+  - {fileID: 11400000, guid: 4ab1e07bd7cbc4340acb27cfe0e62ece, type: 2}
+  - {fileID: 11400000, guid: 2e723d4948f08d04e8e38150e9ccfc02, type: 2}
+  - {fileID: 11400000, guid: 4374d8cbe2d291a41a66ebc394f1a1f4, type: 2}
+  _monsterBoxUpgrades:
+  - {fileID: 11400000, guid: b49e82ad092bffa4985a3016525b8125, type: 2}
+  - {fileID: 11400000, guid: 4d171678371a50848bc613e6c03ab0d4, type: 2}
+  - {fileID: 11400000, guid: 5ed9a9397bd039a4fb3383c1fae1abe9, type: 2}
+  - {fileID: 11400000, guid: b8d5143944bcb9f47a4e3c455f408cb7, type: 2}
+  - {fileID: 11400000, guid: 2ffd56e6002a6894f8f1559b4d665216, type: 2}
 --- !u!1 &316951668
 GameObject:
   m_ObjectHideFlags: 0
