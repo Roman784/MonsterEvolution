@@ -15,6 +15,8 @@ public class LevelBootstrap : MonoBehaviour
 
         while (DataContext.Instance.GameData == null) { yield return null; }
 
+        Localization.Instance.Init(Langs.En);
+
         GameData gameData = DataContext.Instance.GameData;
         MonsterSpawnerData monsterSpawnerData = gameData.MonsterSpawner;
         MergeMagnetData mergeMagnetData = gameData.MergeMagnet;

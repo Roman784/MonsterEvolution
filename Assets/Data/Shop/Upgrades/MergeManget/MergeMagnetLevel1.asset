@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b8745c96649c140a541847741aacaf, type: 3}
   m_Name: MergeMagnetLevel1
   m_EditorClassIdentifier: 
-  Title: Merge magnet
-  Description: 1111111111111
+  Title:
+    En: Merge magnet
+    Ru: "\u041C\u0430\u0433\u043D\u0438\u0442"
+  Description:
+    En: qqqqqqq
+    Ru: "\u0439\u0439\u0439\u0439\u0439\u0439\u0439\u0439"
   Price: 1
   Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}

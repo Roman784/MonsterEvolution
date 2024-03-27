@@ -67,7 +67,7 @@ public class ShopItem : MonoBehaviour
     {
         if (_upgradeLevel >= _upgrades.Count)
         {
-            _titleRenderer.text = _upgrades[_upgrades.Count - 1].Title;
+            _titleRenderer.text = _upgrades[_upgrades.Count - 1].Title.Translate();
             _descriptionRenderer.text = "";
             _priceRenderer.text = "max";
             _iconRenderer.sprite = _upgrades[_upgrades.Count - 1].Icon;
@@ -79,8 +79,8 @@ public class ShopItem : MonoBehaviour
 
         if (_upgradeLevel < 0) return;
 
-        _titleRenderer.text = _upgrades[_upgradeLevel].Title;
-        _descriptionRenderer.text = _upgrades[_upgradeLevel].Description;
+        _titleRenderer.text = _upgrades[_upgradeLevel].Title.Translate();
+        _descriptionRenderer.text = _upgrades[_upgradeLevel].Description.Translate();
         _priceRenderer.text = CoinsRenderer.GetFormattedValue(_upgrades[_upgradeLevel].Price).ToString();
         _iconRenderer.sprite = _upgrades[_upgradeLevel].Icon;
     }
