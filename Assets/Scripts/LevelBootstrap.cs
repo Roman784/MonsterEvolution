@@ -31,5 +31,7 @@ public class LevelBootstrap : MonoBehaviour
         BoxOpenerUpgrade.Instance.LevelUp(boxOpenerData.Level);
         BoxSpawnerUpgrade.Instance.LevelUp(monsterSpawnerData.BoxSpawnerLevel);
         MonsterBoxUpgrade.Instance.LevelUp(monsterSpawnerData.MonsterBoxLevel);
+
+        UpgradeMenu.Instance.Init();
     }
 }

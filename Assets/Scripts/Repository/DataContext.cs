@@ -105,23 +105,30 @@ public class DataContext
         Save();
     }
 
-    public void SetMonsterSpawnerData(MonsterSpawnerData newData)
+    public void SetBoxSpawnerLevel(int level)
     {
-        GameData.MonsterSpawner = newData;
+        GameData.MonsterSpawner.BoxSpawnerLevel = level;
 
         Save();
     }
 
-    public void SetMergeMagnedData(MergeMagnetData newData)
+    public void SetMonsterBoxLevel(int level)
     {
-        GameData.MergeMagnet = newData;
+        GameData.MonsterSpawner.MonsterBoxLevel = level;
 
         Save();
     }
 
-    public void SetBoxOpenerData(BoxOpenerData newData)
+    public void SetMergeMagnedLevel(int level)
     {
-        GameData.BoxOpener = newData;
+        GameData.MergeMagnet.Level = level;
+
+        Save();
+    }
+
+    public void SetBoxOpenerLevel(int level)
+    {
+        GameData.BoxOpener.Level = level;
 
         Save();
     }

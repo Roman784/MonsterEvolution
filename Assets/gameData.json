@@ -1,19 +1,6 @@
 {
-    "CoinCount": "9557",
-    "Monsters": [
-        {
-            "TypeNumber": 5
-        },
-        {
-            "TypeNumber": 5
-        },
-        {
-            "TypeNumber": 1
-        },
-        {
-            "TypeNumber": 5
-        }
-    ],
+    "CoinCount": "11272",
+    "Monsters": [],
     "MonsterSpawner": {
         "BoxSpawnerLevel": 0,
         "MonsterBoxLevel": 0,
@@ -22,7 +9,7 @@
         "InitialTimeReductionStep": 0.10000000149011612
     },
     "MergeMagnet": {
-        "Level": 0,
+        "Level": 5,
         "InitialCooldown": 20.0,
         "InitialCoupleCountAtTime": 1
     },

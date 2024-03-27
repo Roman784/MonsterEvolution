@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterBoxUpgrade
+public class MonsterBoxUpgrade : Upgrade
 {
     private static MonsterBoxUpgrade _instance;
     public static MonsterBoxUpgrade Instance
@@ -15,12 +15,9 @@ public class MonsterBoxUpgrade
         }
     }
 
-    public int CurrentLevel { get; private set; }
-    private Dictionary<int, Action> _levels;
-
     private MonsterBoxUpgrade()
     {
-        CurrentLevel = 0;
+        _currentLevel = 0;
         InitLevels();
     }
 
@@ -35,15 +32,9 @@ public class MonsterBoxUpgrade
         _levels[5] = Level5;
     }
 
-    public void LevelUp(int level)
+    protected override void Save()
     {
-        for (int i = 1; i <= level; i++)
-        {
-            if (!_levels.ContainsKey(i) || i <= CurrentLevel) continue;
-
-            _levels[i].Invoke();
-            CurrentLevel = i;
-        }
+        DataContext.Instance.SetMonsterBoxLevel(_currentLevel);
     }
 
     private void Level1()

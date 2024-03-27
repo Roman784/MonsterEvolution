@@ -67,6 +67,8 @@ public class Wallet
 
         CoinsChanged.Invoke();
 
+        UpdateRenderers();
+
         DataContext.Instance.SetCoinCount(Coins);
     }
 
@@ -78,6 +80,8 @@ public class Wallet
             _coins = 0;
 
         CoinsChanged.Invoke();
+
+        UpdateRenderers();
 
         DataContext.Instance.SetCoinCount(Coins);
     }

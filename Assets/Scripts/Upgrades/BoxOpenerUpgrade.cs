@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxOpenerUpgrade
+public class BoxOpenerUpgrade : Upgrade
 {
     private static BoxOpenerUpgrade _instance;
     public static BoxOpenerUpgrade Instance
@@ -15,12 +15,9 @@ public class BoxOpenerUpgrade
         }
     }
 
-    public int CurrentLevel { get; private set; }
-    private Dictionary<int, Action> _levels;
-
     private BoxOpenerUpgrade()
     {
-        CurrentLevel = 0;
+        _currentLevel = 0;
         InitLevels();
     }
 
@@ -35,15 +32,9 @@ public class BoxOpenerUpgrade
         _levels[5] = Level5;
     }
 
-    public void LevelUp(int level)
+    protected override void Save()
     {
-        for (int i = 1; i <= level; i++)
-        {
-            if (!_levels.ContainsKey(i) || i <= CurrentLevel) continue;
-
-            _levels[i].Invoke();
-            CurrentLevel = i;
-        }
+        DataContext.Instance.SetBoxOpenerLevel(_currentLevel);
     }
 
     private void Level1()
