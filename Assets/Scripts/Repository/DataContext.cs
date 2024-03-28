@@ -19,7 +19,12 @@ public class DataContext
     public GameData GameData { get; private set; }
     private GameData _defaultGameData = new GameData()
     {
-        CoinCount = "0",
+        Wallet = new WalletData()
+        {
+            CoinCount = "0",
+            CPSLevel = 0,
+            InitialCPSMultiplier = 1f
+        },
         Monsters = new List<MonsterData>(),
         MonsterSpawner = new MonsterSpawnerData()
         {
@@ -65,11 +70,9 @@ public class DataContext
 
     private void DefaultData()
     {
-        GameData = new GameData()
-        {
-            CoinCount = _defaultGameData.CoinCount,
-            Monsters = new List<MonsterData>(_defaultGameData.Monsters)
-        };
+        GameData = _defaultGameData;
+
+        Save();
     }
 
     public void AddMonster(int typeNumber)
@@ -100,8 +103,15 @@ public class DataContext
 
     public void SetCoinCount(BigInteger value)
     {
-        GameData.CoinCount = value.ToString();
+        GameData.Wallet.CoinCount = value.ToString();
         
+        Save();
+    }
+
+    public void SetCPSLevel(int level)
+    {
+        GameData.Wallet.CPSLevel = level;
+
         Save();
     }
 

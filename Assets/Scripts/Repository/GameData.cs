@@ -4,7 +4,7 @@ using System.Numerics;
 [System.Serializable]
 public class GameData
 {
-    public string CoinCount;
+    public WalletData Wallet;
     public List<MonsterData> Monsters = new List<MonsterData>();
     public MonsterSpawnerData MonsterSpawner;
     public MergeMagnetData MergeMagnet;

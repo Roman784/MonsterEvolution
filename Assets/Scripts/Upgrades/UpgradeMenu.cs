@@ -15,6 +15,7 @@ public class UpgradeMenu : PanelMenu
     [SerializeField] private List<ShopItemInfo> _boxOpenerUpgrades = new List<ShopItemInfo>();
     [SerializeField] private List<ShopItemInfo> _boxSpawnerUpgrades = new List<ShopItemInfo>();
     [SerializeField] private List<ShopItemInfo> _monsterBoxUpgrades = new List<ShopItemInfo>();
+    [SerializeField] private List<ShopItemInfo> _CPSMultiplierUpgrades = new List<ShopItemInfo>();
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class UpgradeMenu : PanelMenu
         InitShopItem(gameData.BoxOpener.Level, _boxOpenerUpgrades, BoxOpenerUpgrade.Instance);
         InitShopItem(gameData.MonsterSpawner.BoxSpawnerLevel, _boxSpawnerUpgrades, BoxSpawnerUpgrade.Instance);
         InitShopItem(gameData.MonsterSpawner.MonsterBoxLevel, _monsterBoxUpgrades, MonsterBoxUpgrade.Instance);
+        InitShopItem(gameData.Wallet.CPSLevel, _CPSMultiplierUpgrades, CPSUpgrade.Instance);
     }
 
     private void InitShopItem(int upgradeLevel, List<ShopItemInfo> upgrades, Upgrade upgrade)

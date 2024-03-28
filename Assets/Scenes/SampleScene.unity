@@ -651,6 +651,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ed9a9397bd039a4fb3383c1fae1abe9, type: 2}
   - {fileID: 11400000, guid: b8d5143944bcb9f47a4e3c455f408cb7, type: 2}
   - {fileID: 11400000, guid: 2ffd56e6002a6894f8f1559b4d665216, type: 2}
+  _CPSMultiplierUpgrades:
+  - {fileID: 11400000, guid: 45f6e0646f227ab498ac211e9ade1a5c, type: 2}
+  - {fileID: 11400000, guid: f73cff21fb7101f4b95d5cea60e0b3c4, type: 2}
+  - {fileID: 11400000, guid: c694bf26cc87f504e870d83fd51d1538, type: 2}
+  - {fileID: 11400000, guid: bed8c1765f7f6f945aef688bc3208443, type: 2}
+  - {fileID: 11400000, guid: cd2311d13a52aef4fbb56e24ec80a70f, type: 2}
 --- !u!1 &316951668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,8 +1954,8 @@ RectTransform:
   - {fileID: 64690905}
   - {fileID: 727133022}
   - {fileID: 2142781713}
-  - {fileID: 195221857}
   - {fileID: 1816483574}
+  - {fileID: 195221857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

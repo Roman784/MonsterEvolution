@@ -18,6 +18,7 @@ public class LevelBootstrap : MonoBehaviour
         Localization.Instance.Init(Langs.En);
 
         GameData gameData = DataContext.Instance.GameData;
+        WalletData walletData = gameData.Wallet;
         MonsterSpawnerData monsterSpawnerData = gameData.MonsterSpawner;
         MergeMagnetData mergeMagnetData = gameData.MergeMagnet;
         BoxOpenerData boxOpenerData = gameData.BoxOpener;
@@ -25,7 +26,7 @@ public class LevelBootstrap : MonoBehaviour
         MonsterSpawner.Instance.SpawnSavedMonsters();
         MonsterBoxSpawner.Instance.Init(monsterSpawnerData.InitialTypeNumber, monsterSpawnerData.InitialCooldown, monsterSpawnerData.InitialTimeReductionStep);
 
-        Wallet.Instance.Init(BigInteger.Parse(gameData.CoinCount));
+        Wallet.Instance.Init(BigInteger.Parse(walletData.CoinCount), walletData.InitialCPSMultiplier);
         MergeMagnet.Instance.Init(mergeMagnetData.InitialCooldown, mergeMagnetData.InitialCoupleCountAtTime);
         BoxOpener.Instance.Init(boxOpenerData.InitialCooldown, boxOpenerData.InitialCountAtTime);
 
@@ -33,6 +34,7 @@ public class LevelBootstrap : MonoBehaviour
         BoxOpenerUpgrade.Instance.LevelUp(boxOpenerData.Level);
         BoxSpawnerUpgrade.Instance.LevelUp(monsterSpawnerData.BoxSpawnerLevel);
         MonsterBoxUpgrade.Instance.LevelUp(monsterSpawnerData.MonsterBoxLevel);
+        CPSUpgrade.Instance.LevelUp(walletData.CPSLevel);
 
         UpgradeMenu.Instance.Init();
     }

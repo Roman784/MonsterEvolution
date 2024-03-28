@@ -22,6 +22,9 @@ public class Wallet
     public int CPS { get { return _CPS; } }
     private CooldownTimer _revenueTimer;
 
+    private float _CPSMultiplier;
+    public float InitialCPSMultiplier { get; private set; }
+
     public UnityEvent CoinsChanged = new UnityEvent();
     public UnityEvent CPSChanged = new UnityEvent();
 
@@ -29,9 +32,11 @@ public class Wallet
     {
     }
 
-    public void Init(BigInteger coins)
+    public void Init(BigInteger coins, float initialCPSMultiplier)
     {
         _coins = coins;
+        InitialCPSMultiplier = initialCPSMultiplier;
+        _CPSMultiplier = initialCPSMultiplier;
 
         _revenueTimer = new GameObject("RevenueTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
         _revenueTimer.Init(1, CollectRevenue);
@@ -56,6 +61,8 @@ public class Wallet
         {
             _CPS += monster.Revenue;
         }
+
+        _CPS = Mathf.FloorToInt(_CPS * _CPSMultiplier);
 
         if (previousValue != _CPS)
             CPSChanged.Invoke();
@@ -84,6 +91,12 @@ public class Wallet
         UpdateRenderers();
 
         DataContext.Instance.SetCoinCount(Coins);
+    }
+
+    public void SetCPSMultiplier(float value)
+    {
+        _CPSMultiplier = value;
+        CalculateCPS();
     }
 
     private void UpdateRenderers()
