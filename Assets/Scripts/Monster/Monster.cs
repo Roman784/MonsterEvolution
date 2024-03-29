@@ -4,12 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(MonsterMovement))]
 public class Monster : MonoBehaviour
 {
+    [SerializeField] private MonsterInfo _info;
+
     public int MaxTypeNumber {  get; private set; }
 
     [SerializeField] private int _typeNumber;
     public int TypeNumber { get { return _typeNumber; } }
 
-    [SerializeField] private int _revenue;
+    private int _revenue;
     public int Revenue {  get { return _revenue; } }
 
     public MonsterBehaviorHandler BehaviorHandler { get; private set; }
@@ -23,6 +25,8 @@ public class Monster : MonoBehaviour
         Dragging = GetComponent<MonsterDragging>();
         Merging = GetComponent<MonsterMerging>();
         Movement = GetComponent<MonsterMovement>();
+
+        _revenue = _info.CPS;
     }
 
     public void Init(int maxTypeNumber, Vector2 position)

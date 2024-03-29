@@ -19,6 +19,7 @@ public class DataContext
     public GameData GameData { get; private set; }
     private GameData _defaultGameData = new GameData()
     {
+        MaxMonsterLevel = 0,
         Wallet = new WalletData()
         {
             CoinCount = "0",
@@ -139,6 +140,13 @@ public class DataContext
     public void SetBoxOpenerLevel(int level)
     {
         GameData.BoxOpener.Level = level;
+
+        Save();
+    }
+
+    public void SetMaxMonsterLevel(int level)
+    {
+        GameData.MaxMonsterLevel = level;
 
         Save();
     }

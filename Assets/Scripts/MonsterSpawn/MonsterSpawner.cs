@@ -28,6 +28,11 @@ public class MonsterSpawner : MonoBehaviour
 
         MonsterRegistry.Instance.Add(spawnedMonster);
 
+        if (typeNumber > DataContext.Instance.GameData.MaxMonsterLevel)
+        {
+            DataContext.Instance.SetMaxMonsterLevel(typeNumber);
+        }
+
         if (needSave)
         {
             DataContext.Instance.AddMonster(typeNumber);
