@@ -39,10 +39,10 @@ public class MonsterMerging : MonoBehaviour
     {
         if (!CanMerge(monster)) return false;
 
-        MonsterSpawner.Instance.Spawn(_monster.TypeNumber + 1, GetMergedMonsterPosition(monster));
-
         monster.Destroy();
         _monster.Destroy();
+
+        MonsterSpawner.Instance.Spawn(_monster.TypeNumber + 1, GetMergedMonsterPosition(monster));
 
         DataContext.Instance.Remove—oupleMonster(monster.TypeNumber);
 

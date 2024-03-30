@@ -14,6 +14,10 @@ public class MonsterSpawner : MonoBehaviour
 
     [SerializeField] private int _maxCount;
 
+    [Space]
+
+    [SerializeField] private GameObject _effect;
+
     private void Awake()
     {
         Instance = Singleton.Get<MonsterSpawner>();
@@ -33,6 +37,8 @@ public class MonsterSpawner : MonoBehaviour
         spawnedMonster.Init(_maxTypeNumber, position);
 
         MonsterRegistry.Instance.Add(spawnedMonster);
+
+        Instantiate(_effect, position, _effect.transform.rotation);
 
         if (typeNumber > DataContext.Instance.GameData.MaxMonsterLevel)
         {
