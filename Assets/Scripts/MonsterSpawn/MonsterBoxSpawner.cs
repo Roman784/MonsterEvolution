@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class MonsterBoxSpawner : MonoBehaviour
     public int InitialTypeNumber {  get; private set; }
     [Min(1)] private int _typeNumber;
 
+    private List<MonsterBox> _spawnedBoxes = new List<MonsterBox>();
+
     public float InitialCooldown { get; private set; }
     public float InitialReductionStep { get; private set; }
     private float _cooldown;
@@ -19,6 +22,10 @@ public class MonsterBoxSpawner : MonoBehaviour
     [Space]
 
     [SerializeField] private Image _indicator;
+
+    [Space]
+
+    [SerializeField] private int _maxCount;
 
     private void Awake()
     {
@@ -52,8 +59,23 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     private void Spawn(int typeNumber, Vector2 position)
     {
+        DisposeNullableBoxes();
+
+        if (_spawnedBoxes.Count >= _maxCount) return;
+
         MonsterBox spawnedBox = Instantiate(_monsterBoxPrefab);
         spawnedBox.Init(typeNumber, position);
+
+        _spawnedBoxes.Add(spawnedBox);
+    }
+
+    private void DisposeNullableBoxes()
+    {
+        for (int i = 0; i < _spawnedBoxes.Count; i++)
+        {
+            if (_spawnedBoxes[i] == null)
+                _spawnedBoxes.RemoveAt(i);
+        }
     }
 
     public void ReduceTime()

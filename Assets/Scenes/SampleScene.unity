@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monsterBoxPrefab: {fileID: 800175317170194222, guid: df3f1d29ecfbe2448b298961723d455c, type: 3}
   _indicator: {fileID: 1241197194}
+  _maxCount: 10
 --- !u!1 &129526292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1430,7 @@ MonoBehaviour:
   - {fileID: 2778796174633511970, guid: 8d2748c6234af8a438736b5488e2374a, type: 3}
   - {fileID: 4303365759227760473, guid: b603c554d079cad4db60f42cb5196e01, type: 3}
   - {fileID: 1638426725496318771, guid: 270430316cf2f6e4792c2384d56cf5ea, type: 3}
+  _maxCount: 20
 --- !u!4 &459471600
 Transform:
   m_ObjectHideFlags: 0
