@@ -10,4 +10,5 @@ public class GameData
     public MonsterSpawnerData MonsterSpawner;
     public MergeMagnetData MergeMagnet;
     public BoxOpenerData BoxOpener;
+    public float SoundVolume;
 }

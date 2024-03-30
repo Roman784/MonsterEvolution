@@ -46,7 +46,8 @@ public class DataContext
             Level = 0,
             InitialCooldown = 20f,
             InitialCountAtTime = 1
-        }
+        },
+        SoundVolume = 1f
     };
 
     private IDataSerializer _serializer;
@@ -147,6 +148,13 @@ public class DataContext
     public void SetMaxMonsterLevel(int level)
     {
         GameData.MaxMonsterLevel = level;
+
+        Save();
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        GameData.SoundVolume = volume;
 
         Save();
     }

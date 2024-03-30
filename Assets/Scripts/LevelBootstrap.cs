@@ -37,5 +37,7 @@ public class LevelBootstrap : MonoBehaviour
         CPSUpgrade.Instance.LevelUp(walletData.CPSLevel);
 
         UpgradeMenu.Instance.Init();
+
+        Sound.Instance.Init(gameData.SoundVolume);
     }
 }

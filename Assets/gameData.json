@@ -1,11 +1,18 @@
 {
-    "MaxMonsterLevel": 0,
+    "MaxMonsterLevel": 1,
     "Wallet": {
-        "CoinCount": "365",
+        "CoinCount": "694",
         "CPSLevel": 0,
         "InitialCPSMultiplier": 1.0
     },
-    "Monsters": [],
+    "Monsters": [
+        {
+            "TypeNumber": 1
+        },
+        {
+            "TypeNumber": 1
+        }
+    ],
     "MonsterSpawner": {
         "BoxSpawnerLevel": 0,
         "MonsterBoxLevel": 0,
@@ -22,5 +29,6 @@
         "Level": 0,
         "InitialCooldown": 20.0,
         "InitialCountAtTime": 1
-    }
+    },
+    "SoundVolume": 1.0
 }
