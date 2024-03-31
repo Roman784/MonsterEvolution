@@ -10,6 +10,8 @@ public class MonsterBehaviorLifting : MonsterBehavior
     public override void Enter()
     {
         IsFinished = false;
+
+        _monster.Animation.SetIntensity(SpeedTypes.Idle);
     }
 
     public override void Update()

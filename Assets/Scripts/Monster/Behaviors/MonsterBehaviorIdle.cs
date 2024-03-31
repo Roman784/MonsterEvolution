@@ -16,6 +16,8 @@ public class MonsterBehaviorIdle : MonsterBehavior
     {
         IsFinished = false;
 
+        _monster.Animation.SetIntensity(SpeedTypes.Idle);
+
         _timer = Random.Range(_time - _timeOffset, _time + _timeOffset);
     }
 

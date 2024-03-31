@@ -13,6 +13,8 @@ public class MonsterBehaviorReentry : MonsterBehavior
         IsFinished = false;
 
         _monster.Movement.SetSpeed(SpeedTypes.Run);
+        _monster.Animation.SetIntensity(SpeedTypes.Run);
+
         _position = CorralArea.Instance.GetRandomPosition();
     }
 

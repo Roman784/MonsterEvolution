@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MonsterBehaviorHandler), typeof(MonsterDragging), typeof(MonsterMerging))]
-[RequireComponent(typeof(MonsterMovement))]
+[RequireComponent(typeof(MonsterMovement), typeof(MonsterAnimation))]
 public class Monster : MonoBehaviour
 {
     [SerializeField] private MonsterInfo _info;
@@ -18,6 +18,7 @@ public class Monster : MonoBehaviour
     public MonsterDragging Dragging { get; private set; }
     public MonsterMerging Merging { get; private set; }
     public MonsterMovement Movement { get; private set; }
+    public MonsterAnimation Animation { get; private set; }
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class Monster : MonoBehaviour
         Dragging = GetComponent<MonsterDragging>();
         Merging = GetComponent<MonsterMerging>();
         Movement = GetComponent<MonsterMovement>();
+        Animation = GetComponent<MonsterAnimation>();
 
         _revenue = _info.CPS;
     }

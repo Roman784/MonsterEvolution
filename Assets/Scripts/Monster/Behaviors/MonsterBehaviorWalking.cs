@@ -13,6 +13,8 @@ public class MonsterBehaviorWalking : MonsterBehavior
         IsFinished = false;
 
         _monster.Movement.SetSpeed(SpeedTypes.Walk);
+        _monster.Animation.SetIntensity(SpeedTypes.Walk);
+
         _position = CorralArea.Instance.GetRandomPosition();
     }
 
