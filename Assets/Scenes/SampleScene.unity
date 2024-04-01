@@ -1430,6 +1430,7 @@ MonoBehaviour:
   - {fileID: 2778796174633511970, guid: 8d2748c6234af8a438736b5488e2374a, type: 3}
   - {fileID: 4303365759227760473, guid: b603c554d079cad4db60f42cb5196e01, type: 3}
   - {fileID: 1638426725496318771, guid: 270430316cf2f6e4792c2384d56cf5ea, type: 3}
+  - {fileID: 764480728044445399, guid: 52f77f73bc82ec44abb1573b2d9cc204, type: 3}
   _maxCount: 20
   _effect: {fileID: 1335623203666107441, guid: b2a3c817996fdc941b15cf31b8a4a6d3, type: 3}
 --- !u!4 &459471600
@@ -3489,6 +3490,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51a4cf34aa40f464abb937e0de2ee40e, type: 2}
   - {fileID: 11400000, guid: 45a2cd5630906e445822f6fcf71d3e63, type: 2}
   - {fileID: 11400000, guid: 35e428d374566ee4eb49fd8988c32c0a, type: 2}
+  - {fileID: 11400000, guid: f4504f5432beabf41b84b5eaf789fc1e, type: 2}
   _nameRenderer: {fileID: 875361477}
   _descriptionRenderer: {fileID: 1016290672}
   _CPSRenderer: {fileID: 942453854}

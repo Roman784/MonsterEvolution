@@ -8,7 +8,7 @@ public class Monster : MonoBehaviour
 
     public int MaxTypeNumber {  get; private set; }
 
-    [SerializeField] private int _typeNumber;
+    private int _typeNumber;
     public int TypeNumber { get { return _typeNumber; } }
 
     private int _revenue;
@@ -28,6 +28,7 @@ public class Monster : MonoBehaviour
         Movement = GetComponent<MonsterMovement>();
         Animation = GetComponent<MonsterAnimation>();
 
+        _typeNumber = _info.TypeNumber;
         _revenue = _info.CPS;
     }
 

@@ -28,14 +28,13 @@ public class Bestiary : PanelMenu
 
     private void Awake()
     {
-    }
-
-    private new void Open()
-    {
-        base.Open();
-
         _previousMonster.onClick.AddListener(ShowPreviousMonster);
         _nextMonster.onClick.AddListener(ShowNextMonster);
+    }
+
+    public new void Open()
+    {
+        base.Open();
 
         _currentMonsterIndex = 0;
         _previousMonster.gameObject.SetActive(false);

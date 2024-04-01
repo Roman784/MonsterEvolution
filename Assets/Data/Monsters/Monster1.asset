@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad70fc77de610f248a41921311cb6c18, type: 3}
   m_Name: Monster1
   m_EditorClassIdentifier: 
+  TypeNumber: 1
   Name:
     En: Mon 1
     Ru: 

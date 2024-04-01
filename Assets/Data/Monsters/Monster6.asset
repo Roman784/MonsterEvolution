@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad70fc77de610f248a41921311cb6c18, type: 3}
-  m_Name: Monster5
+  m_Name: Monster6
   m_EditorClassIdentifier: 
-  TypeNumber: 5
+  TypeNumber: 6
   Name:
-    En: Mon 5
+    En: Mon 6
     Ru: 
   Description:
     En: mons description mons description mons description mons description mons
       description mons description mons description mons description
     Ru: 
   Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  CPS: 5
+  CPS: 6
