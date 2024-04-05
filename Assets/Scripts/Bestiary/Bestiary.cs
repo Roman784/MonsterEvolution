@@ -13,6 +13,7 @@ public class Bestiary : PanelMenu
     [SerializeField] private TMP_Text _descriptionRenderer;
     [SerializeField] private TMP_Text _CPSRenderer;
     [SerializeField] private Image _spriteRenderer;
+    [SerializeField] private Centering _CPSRenderingcentering;
 
     [Space]
 
@@ -77,5 +78,6 @@ public class Bestiary : PanelMenu
         _descriptionRenderer.text = _monstersInfo[_currentMonsterIndex].Description.Translate();
         _CPSRenderer.text = CoinsRenderer.GetFormattedValue(_monstersInfo[_currentMonsterIndex].CPS).ToString();
         _spriteRenderer.sprite = _monstersInfo[_currentMonsterIndex].Sprite;
+        _CPSRenderingcentering.UpdatePosition();
     }
 }

@@ -8,11 +8,8 @@ public class Monster : MonoBehaviour
 
     public int MaxTypeNumber {  get; private set; }
 
-    private int _typeNumber;
-    public int TypeNumber { get { return _typeNumber; } }
-
-    private int _revenue;
-    public int Revenue {  get { return _revenue; } }
+    public int TypeNumber { get { return _info.TypeNumber; } }
+    public int Revenue {  get { return _info.CPS; } }
 
     public MonsterBehaviorHandler BehaviorHandler { get; private set; }
     public MonsterDragging Dragging { get; private set; }
@@ -27,9 +24,6 @@ public class Monster : MonoBehaviour
         Merging = GetComponent<MonsterMerging>();
         Movement = GetComponent<MonsterMovement>();
         Animation = GetComponent<MonsterAnimation>();
-
-        _typeNumber = _info.TypeNumber;
-        _revenue = _info.CPS;
     }
 
     public void Init(int maxTypeNumber, Vector2 position)

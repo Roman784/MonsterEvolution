@@ -8,6 +8,8 @@ public class CoinsRenderer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsRenderer;
     [SerializeField] private TMP_Text _CPSRenderer;
+    [SerializeField] private Centering _CoinsRenderingcentering;
+    [SerializeField] private Centering _CPSRenderingcentering;
 
     // For values of one million and more.
     private static Dictionary<BigInteger, string> _thresholdsAndSuffixes = new Dictionary<BigInteger, string>();
@@ -46,6 +48,7 @@ public class CoinsRenderer : MonoBehaviour
 
         BigInteger coins = Wallet.Instance.Coins;
         _coinsRenderer.text = GetFormattedValue(coins);
+        _CoinsRenderingcentering.UpdatePosition();
     }
 
     private void UpdateCPSRenderer()
@@ -53,7 +56,8 @@ public class CoinsRenderer : MonoBehaviour
         if (_CPSRenderer == null) return;
 
         int CPS = Wallet.Instance.CPS;
-        _CPSRenderer.text = GetFormattedValue(CPS) + " coin/sec";
+        _CPSRenderer.text = GetFormattedValue(CPS);
+        _CPSRenderingcentering.UpdatePosition();
     }
 
     public static string GetFormattedValue(BigInteger value)

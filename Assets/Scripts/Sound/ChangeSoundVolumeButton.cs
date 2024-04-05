@@ -3,25 +3,15 @@ using UnityEngine.UI;
 
 public class ChangeSoundVolumeButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
-
-    [Space]
-
-    [SerializeField] private Image _icon;
-    [SerializeField] private Sprite _soundOn;
-    [SerializeField] private Sprite _soundOff;
-
-    private void Awake()
-    {
-        _button.onClick.AddListener(ChangeVolume);
-    }
+    [SerializeField] private GameObject _soundOn;
+    [SerializeField] private GameObject _soundOff;
 
     private void Start()
     {
         Sound.Instance.OnVolumeChanged.AddListener(UpdateIcon);
     }
 
-    private void ChangeVolume()
+    public void ChangeVolume()
     {
         float volume = Sound.Instance.Volume > 0 ? 0 : 1;
 
@@ -32,7 +22,8 @@ public class ChangeSoundVolumeButton : MonoBehaviour
 
     public void UpdateIcon(float volume)
     {
-        _icon.sprite = volume > 0 ? _soundOn : _soundOff;
+        _soundOn.SetActive(volume > 0);
+        _soundOff.SetActive(volume <= 0);
     }
 
     public void UpdateIcon()
