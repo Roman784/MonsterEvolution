@@ -107,7 +107,7 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     private void UpdateIndicator()
     {
-        _indicator.fillAmount = (_cooldown - _timer.Time) / _cooldown;
+        _indicator.fillAmount = _timer.Time / _cooldown;
     }
 
     [ContextMenu("Spawn test box")]
