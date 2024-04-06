@@ -26,11 +26,13 @@ public class UpgradeMenu : PanelMenu
     {
         GameData gameData = DataContext.Instance.GameData;
 
-        InitShopItem(gameData.MergeMagnet.Level, _mergeMagnetUpgrades, MergeMagnetUpgrade.Instance);
-        InitShopItem(gameData.BoxOpener.Level, _boxOpenerUpgrades, BoxOpenerUpgrade.Instance);
         InitShopItem(gameData.MonsterSpawner.BoxSpawnerLevel, _boxSpawnerUpgrades, BoxSpawnerUpgrade.Instance);
         InitShopItem(gameData.MonsterSpawner.MonsterBoxLevel, _monsterBoxUpgrades, MonsterBoxUpgrade.Instance);
+        InitShopItem(gameData.MergeMagnet.Level, _mergeMagnetUpgrades, MergeMagnetUpgrade.Instance);
+        InitShopItem(gameData.BoxOpener.Level, _boxOpenerUpgrades, BoxOpenerUpgrade.Instance);
         InitShopItem(gameData.Wallet.CPSLevel, _CPSMultiplierUpgrades, CPSUpgrade.Instance);
+
+        Instantiate(new GameObject("Pacifier").AddComponent<RectTransform>(), _shopItemsGrid);
     }
 
     private void InitShopItem(int upgradeLevel, List<ShopItemInfo> upgrades, Upgrade upgrade)
