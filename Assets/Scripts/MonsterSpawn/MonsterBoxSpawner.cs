@@ -27,6 +27,10 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     [SerializeField] private int _maxCount;
 
+    [Space]
+
+    [SerializeField] private GameObject _spawnEffect;
+
     private void Awake()
     {
         Instance = Singleton.Get<MonsterBoxSpawner>();
@@ -67,6 +71,8 @@ public class MonsterBoxSpawner : MonoBehaviour
         spawnedBox.Init(typeNumber, position);
 
         _spawnedBoxes.Add(spawnedBox);
+
+        Instantiate(_spawnEffect, position + new Vector2(0f, 0.5f), Quaternion.identity);
     }
 
     private void DisposeNullableBoxes()
