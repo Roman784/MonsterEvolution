@@ -10,6 +10,20 @@ public class MonsterMovement : MonoBehaviour
     public void MoveTo(Vector2 position)
     {
         transform.position = Vector2.MoveTowards(transform.position, position, _speed * Time.deltaTime);
+
+        Rotate(position);
+    }
+
+    private void Rotate(Vector2 position)
+    {
+        if (position.x < transform.position.x) 
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (position.x >  transform.position.x) 
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
     }
 
     public void SetSpeed(SpeedTypes speedType)

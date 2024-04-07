@@ -1,16 +1,25 @@
 {
     "MaxMonsterLevel": 6,
     "Wallet": {
-        "CoinCount": "30284",
+        "CoinCount": "32243",
         "CPSLevel": 5,
         "InitialCPSMultiplier": 1.0
     },
     "Monsters": [
         {
+            "TypeNumber": 3
+        },
+        {
+            "TypeNumber": 2
+        },
+        {
             "TypeNumber": 1
         },
         {
-            "TypeNumber": 3
+            "TypeNumber": 2
+        },
+        {
+            "TypeNumber": 1
         }
     ],
     "MonsterSpawner": {
@@ -21,7 +30,7 @@
         "InitialTimeReductionStep": 0.10000000149011612
     },
     "MergeMagnet": {
-        "Level": 1,
+        "Level": 0,
         "InitialCooldown": 20.0,
         "InitialCoupleCountAtTime": 1
     },
