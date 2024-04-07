@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 [RequireComponent(typeof(Monster))]
 public class MonsterAnimation : MonoBehaviour
@@ -15,9 +17,23 @@ public class MonsterAnimation : MonoBehaviour
 
     private Dictionary<SpeedTypes, float> _intensitiesMap;
 
+    [Space]
+
+    [SerializeField] private Animator _coinFetchAnimator;
+    private CooldownTimer _coinFetchTimer;
+
     private void Awake()
     {
         InitIntensities();
+
+        _coinFetchTimer = new GameObject(GetType().ToString() + "Timer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
+        _coinFetchTimer.Init(Random.Range(1.5f, 3f), FetchCoin);
+    }
+
+    private void OnDestroy()
+    {
+        if (_coinFetchTimer != null)
+            Destroy(_coinFetchTimer.gameObject);
     }
 
     private void InitIntensities()
@@ -45,5 +61,10 @@ public class MonsterAnimation : MonoBehaviour
         if (!_intensitiesMap.ContainsKey(speed)) return;
 
         _intensity = _intensitiesMap[speed];
+    }
+
+    private void FetchCoin()
+    {
+        _coinFetchAnimator.SetTrigger("Fetch");
     }
 }

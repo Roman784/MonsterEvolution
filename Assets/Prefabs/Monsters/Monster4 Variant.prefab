@@ -13,12 +13,24 @@ PrefabInstance:
       value: Monster4 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4591b33465e28e241a65388ad68949ca, type: 3}
+    - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Color.b
-      value: 0.47547168
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Color.g
-      value: 0.47547168
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453763816336602399, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.307
       objectReference: {fileID: 0}
     - target: {fileID: 5362838909311084043, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_LocalPosition.x
