@@ -4,6 +4,8 @@ public class MonsterBox : MonoBehaviour
 {
     private int _typeNumber;
 
+    [SerializeField] private Transform _spawnPoint;
+
     public void Init(int typeNumber, Vector2 position)
     {
         _typeNumber = typeNumber;
@@ -18,7 +20,7 @@ public class MonsterBox : MonoBehaviour
 
     public void Open()
     {
-        MonsterSpawner.Instance.Spawn(_typeNumber, transform.position);
+        MonsterSpawner.Instance.Spawn(_typeNumber, _spawnPoint.position);
 
         Destroy();
     }
