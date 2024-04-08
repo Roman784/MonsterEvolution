@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster7 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1956091014247215669, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_Radius
+      value: 0.91
+      objectReference: {fileID: 0}
     - target: {fileID: 4179820090027175442, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: m_Sprite
       value: 

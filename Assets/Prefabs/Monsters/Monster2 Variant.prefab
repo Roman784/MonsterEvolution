@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1956091014247215669, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
+      propertyPath: m_Radius
+      value: 0.63
+      objectReference: {fileID: 0}
     - target: {fileID: 4085268176057200012, guid: 6eea4cdf11592cc4f892f1ff92293920, type: 3}
       propertyPath: _typeNumber
       value: 2
