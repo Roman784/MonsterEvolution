@@ -39,13 +39,13 @@ public class BoxSpawnerUpgrade : Upgrade
 
     private void Level1()
     {
-        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 5f;
+        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 8f;
         MonsterBoxSpawner.Instance.SetCooldown(cooldown);
     }
 
     private void Level2()
     {
-        float step = MonsterBoxSpawner.Instance.InitialReductionStep + 0.1f;
+        float step = MonsterBoxSpawner.Instance.InitialReductionStep + 0.15f;
         MonsterBoxSpawner.Instance.SetTimeReductionStep(step);
     }
 
@@ -63,7 +63,7 @@ public class BoxSpawnerUpgrade : Upgrade
 
     private void Level5()
     {
-        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 12.5f;
+        float cooldown = MonsterBoxSpawner.Instance.InitialCooldown - 12f;
         MonsterBoxSpawner.Instance.SetCooldown(cooldown);
     }
 }

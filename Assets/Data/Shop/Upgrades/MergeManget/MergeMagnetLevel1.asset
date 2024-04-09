@@ -19,5 +19,5 @@ MonoBehaviour:
     En: Automatically merges monsters.
     Ru: "\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438
       \u043E\u0431\u044A\u0435\u0434\u0438\u043D\u044F\u0435\u0442 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432."
-  Price: 1
+  Price: 500
   Icon: {fileID: 21300000, guid: ca0abce5fc12f984db53d0c192a6d7e6, type: 3}

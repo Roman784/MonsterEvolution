@@ -36,25 +36,25 @@ public class CPSUpgrade : Upgrade
 
     private void Level1()
     {
-        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.05f;
+        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.1f;
         Wallet.Instance.SetCPSMultiplier(multiplier);
     }
 
     private void Level2()
     {
-        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.1f;
+        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.15f;
         Wallet.Instance.SetCPSMultiplier(multiplier);
     }
 
     private void Level3()
     {
-        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.15f;
+        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.25f;
         Wallet.Instance.SetCPSMultiplier(multiplier);
     }
 
     private void Level4()
     {
-        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.2f;
+        float multiplier = Wallet.Instance.InitialCPSMultiplier + 0.35f;
         Wallet.Instance.SetCPSMultiplier(multiplier);
     }
 

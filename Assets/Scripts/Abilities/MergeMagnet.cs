@@ -81,13 +81,16 @@ public class MergeMagnet : Ability
     {
         Vector2 position = (couple[0].transform.position + couple[1].transform.position) / 2f;
 
-        while (!IsEqualPositions(couple[0].transform.position, couple[1].transform.position, 0.1f))
+        do
         {
+            if (couple[0] == null || couple[1] == null) StopCoroutine(PushMonsters(couple));
+
             couple[0].transform.position = Vector2.MoveTowards(couple[0].transform.position, position, _moveSpeed * Time.deltaTime);
             couple[1].transform.position = Vector2.MoveTowards(couple[1].transform.position, position, _moveSpeed * Time.deltaTime);
 
             yield return null;
         }
+        while (!IsEqualPositions(couple[0].transform.position, couple[1].transform.position, 0.1f));
 
         _selectedMonsters.Remove(couple[0]);
         _selectedMonsters.Remove(couple[1]);
