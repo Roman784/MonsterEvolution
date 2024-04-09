@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: CPSMultiplierLevel5
   m_EditorClassIdentifier: 
   Title:
-    En: CPS multiplier
-    Ru: 
+    En: Coins multiplier
+    Ru: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u043C\u043E\u043D\u0435\u0442"
   Description:
-    En: 
-    Ru: 
+    En: More coins from monsters.
+    Ru: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u043D\u0435\u0442 \u0441
+      \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432."
   Price: 5
   Icon: {fileID: 21300000, guid: 962a9143aeb421e4d8802bc9804f701e, type: 3}

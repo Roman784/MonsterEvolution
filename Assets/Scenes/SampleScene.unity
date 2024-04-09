@@ -194,7 +194,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 900, y: 350}
+  m_CellSize: {x: 900, y: 400}
   m_Spacing: {x: 0, y: -15}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -728,7 +728,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &258580688
 SpriteRenderer:
@@ -775,7 +775,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 81.82, y: 54.25369}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -792,7 +792,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: -0.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 2.3200002}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &459471599
 MonoBehaviour:
@@ -5035,8 +5035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -13.76001}
-  m_SizeDelta: {x: -60, y: -432.41}
+  m_AnchoredPosition: {x: 0, y: -24.390015}
+  m_SizeDelta: {x: -60, y: -453.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677482329
 MonoBehaviour:
@@ -5535,7 +5535,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1893411761
 MonoBehaviour:

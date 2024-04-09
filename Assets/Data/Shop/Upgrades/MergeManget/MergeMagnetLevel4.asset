@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: MergeMagnetLevel4
   m_EditorClassIdentifier: 
   Title:
-    En: 
-    Ru: 
+    En: Magnet
+    Ru: "\u041C\u0430\u0433\u043D\u0438\u0442"
   Description:
-    En: 
-    Ru: 
+    En: Less time to activation.
+    Ru: "\u041C\u0435\u043D\u044C\u0448\u0435 \u0432\u0440\u0435\u043C\u0435\u043D\u0438
+      \u043D\u0430 \u0430\u043A\u0442\u0438\u0432\u0430\u0446\u0438\u044E."
   Price: 4
   Icon: {fileID: 21300000, guid: ca0abce5fc12f984db53d0c192a6d7e6, type: 3}

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: BoxOpenerLevel3
   m_EditorClassIdentifier: 
   Title:
-    En: 
-    Ru: 
+    En: Crate opener
+    Ru: "\u0410\u0432\u0442\u043E\u0432\u0441\u043A\u0440\u044B\u0442\u0438\u0435"
   Description:
-    En: 
-    Ru: 
+    En: Less time to activation.
+    Ru: "\u041C\u0435\u043D\u044C\u0448\u0435 \u0432\u0440\u0435\u043C\u0435\u043D\u0438
+      \u043D\u0430 \u0430\u043A\u0442\u0438\u0432\u0430\u0446\u0438\u044E."
   Price: 33333333
   Icon: {fileID: 21300000, guid: caf66409a9b531246b03e484ebe23098, type: 3}
