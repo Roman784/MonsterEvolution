@@ -79,5 +79,7 @@ public class Bestiary : PanelMenu
         _CPSRenderer.text = CoinsRenderer.GetFormattedValue(_monstersInfo[_currentMonsterIndex].CPS).ToString();
         _spriteRenderer.sprite = _monstersInfo[_currentMonsterIndex].Sprite;
         _CPSRenderingcentering.UpdatePosition();
+
+        _spriteRenderer.SetNativeSize();
     }
 }

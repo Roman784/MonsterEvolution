@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeNumber: 9
   Name:
-    En: Mon 9
-    Ru: 
+    En: Angel
+    Ru: "\u0410\u043D\u0433\u0435\u043B"
   Description:
-    En: mons description mons description mons description mons description mons
-      description mons description mons description mons description
-    Ru: 
-  Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  CPS: 9
+    En: I don't know what anime it's from, but it has beautiful eyes, all 25 of them.
+    Ru: "\u041D\u0435 \u0437\u043D\u0430\u044E, \u0438\u0437 \u043A\u0430\u043A\u043E\u0433\u043E
+      \u043E\u043D\u043E \u0430\u043D\u0438\u043C\u0435, \u043D\u043E \u0443 \u043D\u0435\u0433\u043E
+      \u043A\u0440\u0430\u0441\u0438\u0432\u044B\u0435 \u0433\u043B\u0430\u0437\u0430,
+      \u0432\u0441\u0435 25."
+  Sprite: {fileID: 21300000, guid: 63b654237459343479c5e3323dc79442, type: 3}
+  CPS: 1000

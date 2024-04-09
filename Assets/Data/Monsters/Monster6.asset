@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeNumber: 6
   Name:
-    En: Mon 6
-    Ru: 
+    En: Doctor
+    Ru: "\u0414\u043E\u043A\u0442\u043E\u0440"
   Description:
-    En: mons description mons description mons description mons description mons
-      description mons description mons description mons description
-    Ru: 
-  Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  CPS: 6
+    En: He has no idea how to heal monsters. He also has terrible handwriting.
+    Ru: "\u041E\u043D \u043F\u043E\u043D\u044F\u0442\u0438\u044F \u043D\u0435 \u0438\u043C\u0435\u0435\u0442,
+      \u043A\u0430\u043A \u043B\u0435\u0447\u0438\u0442\u044C \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432.
+      \u0410 \u0435\u0449\u0435 \u0443 \u043D\u0435\u0433\u043E \u0443\u0436\u0430\u0441\u043D\u044B\u0439
+      \u043F\u043E\u0447\u0435\u0440\u043A."
+  Sprite: {fileID: 21300000, guid: 53c4b1862a784cc46b22c6412dd2c00b, type: 3}
+  CPS: 110

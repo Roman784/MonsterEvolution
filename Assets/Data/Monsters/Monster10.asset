@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeNumber: 10
   Name:
-    En: Mon 10
-    Ru: 
+    En: Cube
+    Ru: "\u041A\u0443\u0431"
   Description:
-    En: mons description mons description mons description mons description mons
-      description mons description mons description mons description
-    Ru: 
-  Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  CPS: 10
+    En: It's just that the cube is a symbol of the pointlessness of such games.
+    Ru: "\u041F\u0440\u043E\u0441\u0442\u043E \u043A\u0443\u0431 - \u0441\u0438\u043C\u0432\u043E\u043B
+      \u0431\u0435\u0441\u0441\u043C\u044B\u0441\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u0438
+      \u043F\u043E\u0434\u043E\u0431\u043D\u044B\u0445 \u0438\u0433\u0440."
+  Sprite: {fileID: 21300000, guid: f51f5765f259691409a817d0624ad73f, type: 3}
+  CPS: 2500
