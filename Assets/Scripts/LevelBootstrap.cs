@@ -39,5 +39,6 @@ public class LevelBootstrap : MonoBehaviour
         UpgradeMenu.Instance.Init();
 
         Sound.Instance.Init(gameData.SoundVolume);
+        MusicPlayer.Instance.Init(gameData.SoundVolume);
     }
 }
