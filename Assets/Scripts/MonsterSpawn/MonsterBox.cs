@@ -22,6 +22,8 @@ public class MonsterBox : MonoBehaviour
     {
         MonsterSpawner.Instance.Spawn(_typeNumber, _spawnPoint.position);
 
+        SoundPlayer.Instance.PlayOpenBoxSound();
+
         Destroy();
     }
 

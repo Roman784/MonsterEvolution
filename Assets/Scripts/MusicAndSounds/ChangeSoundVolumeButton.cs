@@ -18,6 +18,8 @@ public class ChangeSoundVolumeButton : MonoBehaviour
         UpdateIcon(volume);
 
         Sound.Instance.SetVolume(volume);
+
+        SoundPlayer.Instance.PlayButtoClickSound();
     }
 
     public void UpdateIcon(float volume)

@@ -52,6 +52,9 @@ public class ShopItem : MonoBehaviour
 
         Wallet.Instance.ReduceCoinCount(_price);
 
+        SoundPlayer.Instance.PlayUpgradeSound();
+        SoundPlayer.Instance.PlayPurchaseSound();
+
         UpdateRenderers();
         UpdateCoinShortageDesignation();
     }

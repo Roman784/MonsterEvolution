@@ -5,6 +5,7 @@ public class MusicPlayer : MonoBehaviour
 {
     public static MusicPlayer Instance { get; private set; }
 
+    [SerializeField] private float _volume;
     [SerializeField] private List<AudioClip> _clips = new List<AudioClip>();
 
     private AudioSource _audioSource;
@@ -19,7 +20,7 @@ public class MusicPlayer : MonoBehaviour
     public void Init(float volume)
     {
         Sound.Instance.OnVolumeChanged.AddListener(ChangeVolume);
-        _audioSource.volume = volume;
+        _audioSource.volume = _volume * volume;
 
         Play();
     }
@@ -36,6 +37,6 @@ public class MusicPlayer : MonoBehaviour
 
     private void ChangeVolume()
     {
-        _audioSource.volume = Sound.Instance.Volume;
+        _audioSource.volume = _volume * Sound.Instance.Volume;
     }
 }

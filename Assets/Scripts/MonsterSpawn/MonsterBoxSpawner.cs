@@ -73,6 +73,8 @@ public class MonsterBoxSpawner : MonoBehaviour
         _spawnedBoxes.Add(spawnedBox);
 
         Instantiate(_spawnEffect, position + new Vector2(0f, 0.5f), Quaternion.identity);
+
+        SoundPlayer.Instance.PlayMergeSound();
     }
 
     private void DisposeNullableBoxes()
@@ -87,6 +89,8 @@ public class MonsterBoxSpawner : MonoBehaviour
     public void ReduceTime()
     {
         _timer.Time -= _timeReductionStep;
+
+        SoundPlayer.Instance.PlayButtoClickSound();
     }
 
     public void SetTypeNumber(int value)

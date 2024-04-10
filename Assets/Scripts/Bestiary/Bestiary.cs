@@ -52,6 +52,8 @@ public class Bestiary : PanelMenu
 
         _currentMonsterIndex -= 1;
         ShowMonster();
+
+        SoundPlayer.Instance.PlayButtoClickSound();
     }
 
     private void ShowNextMonster() 
@@ -60,6 +62,8 @@ public class Bestiary : PanelMenu
 
         _currentMonsterIndex += 1;
         ShowMonster();
+
+        SoundPlayer.Instance.PlayButtoClickSound();
     }
 
     private void ShowMonster()

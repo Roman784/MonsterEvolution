@@ -813,6 +813,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &295551710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295551712}
+  - component: {fileID: 295551711}
+  m_Layer: 0
+  m_Name: SoundPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &295551711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295551710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e3debd2f36be1428126c691b3f2941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sourcerPrefab: {fileID: 5202174206288813669, guid: e7acccd91eb2bea409b50f86c0db5ae1, type: 3}
+  _buttonClickSound: {fileID: 8300000, guid: f97d81b29797fed43ac31cca18053539, type: 3}
+  _openMenuSound: {fileID: 8300000, guid: 0ffaf57b1f0305549b35e5db6277a5c2, type: 3}
+  _upgradeSound: {fileID: 8300000, guid: 8f3935fd189e4a24eb66d7af7a45814f, type: 3}
+  _purchaseSound: {fileID: 8300000, guid: 8d84820414d431a4aa8a2ab238fc444d, type: 3}
+  _openBoxSound: {fileID: 8300000, guid: cc4401471ad0ade448730145b2447554, type: 3}
+  _mergeSound: {fileID: 8300000, guid: 9788120be4e9cd84fa69d94ff4f3e467, type: 3}
+--- !u!4 &295551712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295551710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4939239, y: 0.33865628, z: 185.6787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351312491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,7 +2072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _indicator: {fileID: 892277044}
   _coupleCountAtTime: 0
-  _moveSpeed: 12
+  _moveSpeed: 16
 --- !u!1 &729199849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e27ff76c7727144cb50fdbfa872fc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _volume: 0.5
   _clips:
   - {fileID: 8300000, guid: 72791f956c7ff854389f8472288e4fdc, type: 3}
   - {fileID: 8300000, guid: a694dc583e98d494b85147b0425be01d, type: 3}
@@ -2228,7 +2280,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6504,3 +6556,4 @@ SceneRoots:
   - {fileID: 890157476}
   - {fileID: 258580689}
   - {fileID: 803051102}
+  - {fileID: 295551712}
