@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title:
     En: Crate opener
-    Ru: "\u0410\u0432\u0442\u043E\u0432\u0441\u043A\u0440\u044B\u0442\u0438\u0435"
+    Ru: "\u0410\u0432\u0442\u043E\u043E\u0442\u043A\u0440\u044B\u0442\u0438\u0435"
   Description:
     En: More crates at one time.
     Ru: "\u0411\u043E\u043B\u044C\u0448\u0435 \u044F\u0449\u0438\u043A\u043E\u0432

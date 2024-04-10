@@ -18,6 +18,6 @@ MonoBehaviour:
     Ru: "\u0411\u043E\u043B\u044C\u0448\u0430\u044F \u0441\u043B\u0438\u0437\u044C"
   Description:
     En: Are those really its  bones?
-    Ru: "\u042D\u0442\u043E \u0442\u043E\u0447\u043D\u043E \u0435\u0451 \u043A\u043E\u0441\u0442\u0438?"
+    Ru: "\u042D\u0442\u043E \u0442\u043E\u0447\u043D\u043E \u0435\u0433\u043E \u043A\u043E\u0441\u0442\u0438?"
   Sprite: {fileID: 21300000, guid: 92afe3dce7f6bd04499fc02bd742be5f, type: 3}
   CPS: 10
