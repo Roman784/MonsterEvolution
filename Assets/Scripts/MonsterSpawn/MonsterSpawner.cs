@@ -42,6 +42,8 @@ public class MonsterSpawner : MonoBehaviour
 
         if (typeNumber > DataContext.Instance.GameData.MaxMonsterLevel)
         {
+            NewMonsterUnlockedMenu.Instance.Open(spawnedMonster.Info);
+            SoundPlayer.Instance.PlayNewUnlockSound();
             DataContext.Instance.SetMaxMonsterLevel(typeNumber);
         }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     [SerializeField] private MonsterInfo _info;
+    public MonsterInfo Info {  get { return _info; } }
 
     public int MaxTypeNumber {  get; private set; }
 

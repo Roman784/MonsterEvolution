@@ -14,6 +14,7 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private AudioClip _purchaseSound;
     [SerializeField] private AudioClip _openBoxSound;
     [SerializeField] private AudioClip _mergeSound;
+    [SerializeField] private AudioClip _newUnlockSound;
 
     private static ObjectPool<SoundSourcer> _sourcersPool;
 
@@ -53,6 +54,11 @@ public class SoundPlayer : MonoBehaviour
     public void PlayMergeSound()
     {
         Play(_mergeSound);
+    }
+
+    public void PlayNewUnlockSound()
+    {
+        Play(_newUnlockSound);
     }
 
     public void Play(AudioClip clip)
