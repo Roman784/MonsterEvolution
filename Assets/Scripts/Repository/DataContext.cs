@@ -16,7 +16,7 @@ public class DataContext
         }
     }
 
-    public GameData GameData { get; private set; }
+    public GameData GameData { get; private set; } = null;
     private GameData _defaultGameData = new GameData()
     {
         MaxMonsterLevel = 0,
@@ -54,15 +54,13 @@ public class DataContext
 
     private DataContext()
     {
-        _serializer = new JsonSerializer(Application.dataPath, "gameData");
+        // _serializer = new JsonSerializer(Application.dataPath, "gameData");
+        _serializer = new YandexSerializer();
     }
 
     public void Load()
     {
         GameData = _serializer.Load();
-
-        if (GameData == null)
-            DefaultData();
     }
 
     private void Save()
@@ -70,9 +68,19 @@ public class DataContext
         _serializer.Save(GameData);
     }
 
+    public void SetGameData(GameData data)
+    {
+        GameData = data;
+
+        if (GameData == null)
+            DefaultData();
+    }
+
     private void DefaultData()
     {
         GameData = _defaultGameData;
+
+        Debug.Log("Default data");
 
         Save();
     }

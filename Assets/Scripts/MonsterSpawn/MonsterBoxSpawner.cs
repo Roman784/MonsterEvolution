@@ -111,6 +111,8 @@ public class MonsterBoxSpawner : MonoBehaviour
 
     private void UpdateIndicator()
     {
+        if (_timer == null) return;
+
         _indicator.fillAmount = _timer.Time / _cooldown;
     }
 

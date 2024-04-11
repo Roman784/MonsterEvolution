@@ -39,7 +39,7 @@ public class Wallet
         _CPSMultiplier = initialCPSMultiplier;
 
         _revenueTimer = new GameObject("RevenueTimer", typeof(CooldownTimer)).GetComponent<CooldownTimer>();
-        _revenueTimer.Init(1, CollectRevenue);
+        _revenueTimer.Init(2, CollectRevenue);
 
         CalculateCPS();
         UpdateRenderers();
@@ -76,7 +76,8 @@ public class Wallet
 
         UpdateRenderers();
 
-        DataContext.Instance.SetCoinCount(Coins);
+        if (_coins.ToString() != DataContext.Instance.GameData.Wallet.CoinCount)
+            DataContext.Instance.SetCoinCount(Coins);
     }
 
     public void ReduceCoinCount(int value)

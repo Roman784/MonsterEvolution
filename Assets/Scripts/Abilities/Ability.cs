@@ -50,6 +50,8 @@ public abstract class Ability : MonoBehaviour
 
     private void UpdateIndicator()
     {
+        if (_timer == null) return;
+
         _indicator.fillAmount = (_cooldown - _timer.Time) / _cooldown;
     }
 }

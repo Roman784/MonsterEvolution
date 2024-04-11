@@ -32,11 +32,19 @@ public class MusicPlayer : MonoBehaviour
         _audioSource.clip = clip;
         _audioSource.Play();
 
+        _audioSource.playOnAwake = true;
+
         Invoke("Play", clip.length);
     }
 
     private void ChangeVolume()
     {
         _audioSource.volume = _volume * Sound.Instance.Volume;
+    }
+
+    public void ContinuePlay()
+    {
+        /*if (_audioSource != null && _audioSource.clip != null && !_audioSource.isPlaying) 
+            _audioSource.Play();*/
     }
 }

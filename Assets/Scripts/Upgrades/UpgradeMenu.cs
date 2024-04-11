@@ -33,11 +33,30 @@ public class UpgradeMenu : PanelMenu
         InitShopItem(gameData.Wallet.CPSLevel, _CPSMultiplierUpgrades, CPSUpgrade.Instance);
 
         Instantiate(new GameObject("Pacifier").AddComponent<RectTransform>(), _shopItemsGrid);
+
+        YandexReceiver.Rewarded.AddListener(GetAdReward);
     }
 
     private void InitShopItem(int upgradeLevel, List<ShopItemInfo> upgrades, Upgrade upgrade)
     {
         ShopItem shopItem = Instantiate(_shopItemPrefab, _shopItemsGrid);
         shopItem.Init(upgrades, upgradeLevel, upgrade);
+    }
+
+    public new void Open()
+    {
+        base.Open();
+
+        YandexSender.Instance.ShowFullscreenAdv();
+    }
+
+    public void ShowAd()
+    {
+        YandexSender.Instance.ShowRewardedVideo();
+    }
+
+    private void GetAdReward()
+    {
+        Wallet.Instance.IncreaseCoinCount(2000);
     }
 }

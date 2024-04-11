@@ -11,11 +11,13 @@ public class LevelBootstrap : MonoBehaviour
 
     private IEnumerator BootUp()
     {
+        YandexSender.Instance.ShowFullscreenAdv();
+
         DataContext.Instance.Load();
 
         while (DataContext.Instance.GameData == null) { yield return null; }
 
-        Localization.Instance.Init(Langs.En);
+        Localization.Instance.Init(YandexSender.Instance.GetLanguage());
 
         GameData gameData = DataContext.Instance.GameData;
         WalletData walletData = gameData.Wallet;
