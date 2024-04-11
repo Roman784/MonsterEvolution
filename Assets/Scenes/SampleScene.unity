@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 1807745104}
+  _animationSpeed: 20
   _monstersInfo:
   - {fileID: 11400000, guid: 6a59f2ea79a7b9a45abdcd824dabb0ca, type: 2}
   - {fileID: 11400000, guid: c22e1fdd7750b3f4eae143267c01ea86, type: 2}
@@ -5819,6 +5820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 979664341}
+  _animationSpeed: 100
   _name: {fileID: 1497177607}
   _image: {fileID: 2101572708}
   _closeButton: {fileID: 1379765659}
@@ -5874,6 +5876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 1484129164}
+  _animationSpeed: 20
   _shopItemCount: 4
   _shopItemPrefab: {fileID: 4477714432800756315, guid: 4ea0700b309e91340bd76f476d0234bf, type: 3}
   _shopItemsGrid: {fileID: 21284090}

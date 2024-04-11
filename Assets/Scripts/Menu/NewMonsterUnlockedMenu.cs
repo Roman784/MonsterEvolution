@@ -54,7 +54,7 @@ public class NewMonsterUnlockedMenu : PanelMenu
     {
         _closeButton.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.75f);
 
         _closeButton.gameObject.SetActive(true);
     }
