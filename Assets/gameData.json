@@ -1,7 +1,7 @@
 {
     "MaxMonsterLevel": 5,
     "Wallet": {
-        "CoinCount": "4845",
+        "CoinCount": "5896",
         "CPSLevel": 0,
         "InitialCPSMultiplier": 1.0
     },
@@ -11,6 +11,9 @@
         },
         {
             "TypeNumber": 5
+        },
+        {
+            "TypeNumber": 1
         }
     ],
     "MonsterSpawner": {
