@@ -17,6 +17,10 @@ public class UpgradeMenu : PanelMenu
     [SerializeField] private List<ShopItemInfo> _monsterBoxUpgrades = new List<ShopItemInfo>();
     [SerializeField] private List<ShopItemInfo> _CPSMultiplierUpgrades = new List<ShopItemInfo>();
 
+    [Space]
+
+    [SerializeField] private AdPanel _adPanel;
+
     private void Awake()
     {
         Instance = Singleton.Get<UpgradeMenu>();
@@ -52,7 +56,8 @@ public class UpgradeMenu : PanelMenu
 
     public void ShowAd()
     {
-        YandexSender.Instance.ShowRewardedVideo();
+        //YandexSender.Instance.ShowRewardedVideo();
+        _adPanel.Open();
     }
 
     private void GetAdReward()
